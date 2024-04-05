@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>armas</title>
+    <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -15,7 +15,9 @@
     <header>
         <!-- place navbar here -->
     </header>
-    <main></main>
+    <main>
+        yatamos melos
+    </main>
     <footer>
         <!-- place footer here -->
     </footer>

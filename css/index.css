@@ -1,0 +1,32 @@
+body {
+    background-image: url('../img/index/inicio.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.card {
+    background: none;
+    /* Quita el fondo de la tarjeta */
+    border: none;
+    /* Quita el borde de la tarjeta */
+}
+
+.form-control {
+    background-color: transparent;
+    /* Hace que el fondo de los campos de entrada sea transparente */
+    border-color: transparent;
+    /* Quita el borde de los campos de entrada */
+    transition: background-color 0.3s;
+    /* Añade una transición suave para el cambio de color */
+}
+
+/* Estilos para el hover */
+.form-control:hover {
+    background-color: #cce5ff;
+    /* Cambia el color de fondo al pasar el mouse */
+}
+
+.btn.btn-success:hover {
+    background-color: #28a745;
+    /* Cambia el color de fondo del botón al pasar el mouse */
+}
