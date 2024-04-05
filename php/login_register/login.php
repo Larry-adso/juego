@@ -8,11 +8,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Obtiene los datos del formulario
-    $usuario_ingresado = $_POST['nickname'];
-    $contraseña_ingresada = $_POST['password'];
+    $nickname = $_POST['nickname'];
+    $password = $_POST['password'];
+    $password = hash('sha512', $password);
 
     // Consulta SQL para buscar el usuario en la base de datos
-    $consulta = "SELECT * FROM usuarios WHERE nickname = '$usuario_ingresado' AND password = '$contraseña_ingresada'";
+    $consulta = "SELECT * FROM usuarios WHERE nickname = '$nickname' AND password = '$password'";
     $resultado = $conexion->query($consulta);
 
     // Verifica si se encontró el usuario en la base de datos
@@ -21,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         session_start();
 
         // Guarda el nombre de usuario en la sesión
-        $_SESSION['usuario'] = $usuario_ingresado;
+        $_SESSION['usuario'] = $nickname;
 
         // Redirecciona a una página de inicio de sesión exitoso
         header("Location: ../../views/index.php");
@@ -29,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Mensaje de error si las credenciales son incorrectas
         $mensaje_error = "Usuario o contraseña incorrectos.";
+        header("Location: ../../index.php");
     }
 
     // Cierra la conexión con la base de datos

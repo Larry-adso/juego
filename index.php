@@ -37,6 +37,8 @@
                         <input type="password" class="form-control" name="password" id="" placeholder="" />
                     </div>
                     <button type="submit" class="btn btn-success">iniciar a jugar</button>
+                    <a name="" id="" class="btn btn-danger" href="views/registro.php" role="button">crear cuenta/form></a>
+
                 </form>
             </div>
         </div>
