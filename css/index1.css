@@ -1,32 +1,93 @@
 body {
-    background-image: url('../img/index/inicio.png');
-    background-size: cover;
-    background-position: center;
+    background-image:url('../img/index/inicio.png') ;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .card {
-    background: none;
-    /* Quita el fondo de la tarjeta */
+    background-color: #000000;
     border: none;
-    /* Quita el borde de la tarjeta */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(244, 236, 236, 0.1);
+    padding: 40px;
+    width: 650px;
+}
+
+
+
+.card-title {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.form-label {
+    color: #fff;
+    font-size: 16px;
 }
 
 .form-control {
-    background-color: transparent;
-    /* Hace que el fondo de los campos de entrada sea transparente */
-    border-color: transparent;
-    /* Quita el borde de los campos de entrada */
-    transition: background-color 0.3s;
-    /* Añade una transición suave para el cambio de color */
+    background-color: #474747;
+    border-color: #2f2f2f;
+    color: #fff;
 }
 
-/* Estilos para el hover */
-.form-control:hover {
-    background-color: #cce5ff;
-    /* Cambia el color de fondo al pasar el mouse */
+.btn-success {
+    background-color: #ff46d1;
+    border-color: #ffffff;
+    color: #fff;
+    transition: all 0.3s ease;
 }
 
-.btn.btn-success:hover {
-    background-color: #28a745;
-    /* Cambia el color de fondo del botón al pasar el mouse */
+.btn-success:hover {
+    background-color: #e112ad;
+    border-color: #ffffff;
+}
+
+.btn-danger {
+    background-color: #7289da;
+    border-color: #ffffff;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.btn-success,
+.btn-danger {
+    width: 100%;
+    margin-top: 20px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        border-color: #ff4654;
+    }
+    100% {
+        transform: scale(1.1);
+        border-color: #ff5c68;
+    }
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-danger:hover {
+    background-color: #5865a6;
+    border-color: #5865a6;
 }
