@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Registro de Usuario</title>
-    <link rel="stylesheet" href="../css/registro.css"> <!-- Enlace a archivo CSS para los estilos -->
+    <link rel="stylesheet" href="../css/registroo.css"> <!-- Enlace a archivo CSS para los estilos -->
 </head>
 
 <body>
