@@ -82,10 +82,10 @@ $conexion = null;
                 </div>
             </a>
 
-            <a href="#">
+            <a href="avatar.php">
                 <div class="option">
                     <i class="far fa-file" title="Portafolio"></i>
-                    <h4>Portafolio</h4>
+                    <h4>avatr</h4>
                 </div>
             </a>
 
