@@ -1,3 +1,4 @@
+
 <?php
 // Verifica si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

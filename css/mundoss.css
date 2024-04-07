@@ -1,0 +1,108 @@
+body, html {
+    background-image: url(../img/index/fontmundo.jpg);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+  }
+  
+  header {
+    background-color: #2e4597;
+    color: white;
+    padding: 20px;
+  }
+  
+  .top-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .room-buttons {
+    display: flex;
+  }
+  
+  .room-button {
+    background-color: #ccc;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .room-button.active {
+    background-color: #666;
+  }
+  
+  .icons img {
+    width: 30px;
+    margin-left: 10px;
+  }
+  
+  .back-button {
+    background-color: #ccc;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  h1 {
+    margin: 0;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  .rooms-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .room {
+    background-color: #f9f9f9;
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: 30px;
+    transition: transform 0.3s ease;
+  }
+  
+  .room img {
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  .room h2 {
+    margin: 0;
+  }
+  
+  .room p {
+    margin: 5px 0;
+  }
+  
+  .join-button {
+    background-color: #053885;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .join-button:hover {
+    background-color: #053885;
+  }
+  
+  .room:hover {
+    transform: scale(1.05);
+  }
+  
