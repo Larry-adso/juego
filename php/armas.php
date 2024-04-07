@@ -15,7 +15,9 @@
     <header>
         <!-- place navbar here -->
     </header>
-    <main></main>
+    <main>
+
+    </main>
     <footer>
         <!-- place footer here -->
     </footer>

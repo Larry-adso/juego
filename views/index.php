@@ -1,26 +1,132 @@
-<!doctype html>
+<?php
+session_start();
+
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['nickname'])) {
+    echo '<script>
+            alert("Por favor inicie sesión e intente nuevamente");
+            window.location = "../index.php";
+          </script>';
+    session_destroy();
+    die();
+}
+
+include("../db/PDO.php");
+
+try {
+    // Preparar y ejecutar la consulta
+    $consultaUsuario = $conexion->prepare("SELECT nickname FROM usuarios WHERE nickname = :nickname");
+    $consultaUsuario->bindParam(':nickname', $_SESSION['nickname']);
+    $consultaUsuario->execute();
+
+    // Obtener el resultado de la consulta
+    $usuario = $consultaUsuario->fetch(PDO::FETCH_ASSOC);
+
+    // Comprobar si se obtuvo el nombre de usuario correctamente
+    if (!$usuario) {
+        throw new Exception("El usuario no fue encontrado en la base de datos");
+    }
+
+    $nombreUsuario = $usuario['nickname'];
+} catch (PDOException $e) {
+    // Manejar errores de PDO
+    echo "Error de PDO: " . $e->getMessage();
+} catch (Exception $e) {
+    // Manejar otros tipos de errores
+    echo "Error: " . $e->getMessage();
+}
+
+// Cerrar la conexión a la base de datos
+$conexion = null;
+?>
+
+
+
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú lateral responsive - MagtimusPro</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../css/nav.css">
+
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body id="body">
+
     <header>
-        <!-- place navbar here -->
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open">
+            </i>
+        </div>
     </header>
+
+    <div class="menu__side" id="menu_side">
+
+        <div class="name__page">
+            <i class="fab fa-youtube"></i>
+            <p>: <?php echo $nombreUsuario; ?></p>
+        </div>
+
+        <div class="options__menu">
+
+            <a href="../php/login_register/cerrar.php" class="selected">
+                <div class="option">
+                    <i class="fas fa-home" title="Inicio"></i>
+                    <h4>cerrar</h4>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="option">
+                    <i class="far fa-file" title="Portafolio"></i>
+                    <h4>Portafolio</h4>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="option">
+                    <i class="fas fa-video" title="Cursos"></i>
+                    <h4>Cursos</h4>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="option">
+                    <i class="far fa-sticky-note" title="Blog"></i>
+                    <h4>Blog</h4>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="option">
+                    <i class="far fa-id-badge" title="Contacto"></i>
+                    <h4>Contacto</h4>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="option">
+                    <i class="far fa-address-card" title="Nosotros"></i>
+                    <h4>Nosotros</h4>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
     <main>
-        <h1>aqui tamos</h1>
+
+
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="../js/nav.js"></script>
 </body>
 
 </html>

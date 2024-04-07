@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($resultado->num_rows == 1) {
         session_start();
 
-        $_SESSION['usuario'] = $nickname;
+        $_SESSION['nickname'] = $nickname;
         header("Location: ../../views/index.php");
         exit();
     } else {
