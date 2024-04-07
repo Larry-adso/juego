@@ -24,6 +24,7 @@ try {
 
     // Comprobar si se obtuvo el nombre de usuario correctamente
     if (!$usuario) {
+
         throw new Exception("El usuario no fue encontrado en la base de datos");
     }
 
@@ -82,10 +83,10 @@ $conexion = null;
                 </div>
             </a>
 
-            <a href="#">
+            <a href="admin/avatar.php">
                 <div class="option">
                     <i class="far fa-file" title="Portafolio"></i>
-                    <h4>Portafolio</h4>
+                    <h4>avatar</h4>
                 </div>
             </a>
 
@@ -118,7 +119,6 @@ $conexion = null;
             </a>
 
         </div>
-
     </div>
 
     <main>

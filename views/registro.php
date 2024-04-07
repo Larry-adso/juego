@@ -16,7 +16,7 @@
                 <input type="text" id="id" name="id" required>
             </div>
             <div class="form-group">
-                <label for="nombre">Nombre:</label>
+            <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>
             </div>
             <div class="form-group">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-04-2024 a las 06:55:56
+-- Tiempo de generación: 07-04-2024 a las 21:46:03
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -30,10 +30,48 @@ SET time_zone = "+00:00";
 CREATE TABLE `armas` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
-  `daño` varchar(50) NOT NULL,
+  `da_body` varchar(50) NOT NULL,
+  `da_head` varchar(50) NOT NULL,
   `balas` varchar(50) NOT NULL,
   `id_tip_arma` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `armas`
+--
+
+INSERT INTO `armas` (`id`, `nombre`, `da_body`, `da_head`, `balas`, `id_tip_arma`) VALUES
+(1, 'vandal', '40', '150', '25', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `avatar`
+--
+
+CREATE TABLE `avatar` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `img` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tp_armas`
+--
+
+CREATE TABLE `tp_armas` (
+  `id` int(11) NOT NULL,
+  `tipo` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tp_armas`
+--
+
+INSERT INTO `tp_armas` (`id`, `tipo`) VALUES
+(1, 'Rifle de asalto');
 
 -- --------------------------------------------------------
 
@@ -69,6 +107,19 @@ INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `nickname`, `password`, `nivel
 -- Indices de la tabla `armas`
 --
 ALTER TABLE `armas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_tip_arma` (`id_tip_arma`);
+
+--
+-- Indices de la tabla `avatar`
+--
+ALTER TABLE `avatar`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `tp_armas`
+--
+ALTER TABLE `tp_armas`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -85,7 +136,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `armas`
 --
 ALTER TABLE `armas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `avatar`
+--
+ALTER TABLE `avatar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `tp_armas`
+--
+ALTER TABLE `tp_armas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
