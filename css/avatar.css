@@ -1,13 +1,11 @@
 body, html {
-    background-image: url(../img/index/fontmundo.jpg);
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    height: 100%;
   }
   
   header {
-    background-color: #2e4597;
+    background-color: #333;
     color: white;
     padding: 20px;
   }
@@ -16,23 +14,6 @@ body, html {
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-  
-  .room-buttons {
-    display: flex;
-  }
-  
-  .room-button {
-    background-color: #ccc;
-    border: none;
-    padding: 10px 20px;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .room-button.active {
-    background-color: #666;
   }
   
   .icons img {
@@ -55,54 +36,54 @@ body, html {
     padding: 20px;
   }
   
-  .rooms-container {
+  .avatar-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
   
-  .room {
+  .avatar {
     background-color: #f9f9f9;
-    padding: 60px;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    margin: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
     transition: transform 0.3s ease;
+    cursor: pointer;
   }
   
-  .room img {
-    width: 100%;
-    border-radius: 5px;
+  .avatar img {
+    width: 100px;
+    border-radius: 50%;
   }
   
-  .room h2 {
+  .avatar h2 {
     margin: 0;
   }
   
-  .room p {
+  .avatar p {
     margin: 5px 0;
   }
   
-  .join-button {
-    background-color: #053885;
+  .avatar.selected {
+    border: 2px solid blue;
+  }
+  
+  .select-button {
+    background-color: #4CAF50;
     color: white;
     border: none;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: block;
+    margin: 20px auto;
     font-size: 16px;
-    margin-top: 10px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
   }
   
-  .join-button:hover {
-    background-color: #053885;
-  }
-  
-  .room:hover {
-    transform: scale(1.05);
+  .select-button:hover {
+    background-color: #45a049;
   }
   
