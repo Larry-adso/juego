@@ -90,31 +90,31 @@ $conexion = null;
                 </div>
             </a>
 
-            <a href="#">
+            <a href="mundos.php">
                 <div class="option">
                     <i class="fas fa-video" title="Cursos"></i>
-                    <h4>Cursos</h4>
+                    <h4>mundos</h4>
                 </div>
             </a>
 
-            <a href="#">
+            <a href="armas.php">
                 <div class="option">
                     <i class="far fa-sticky-note" title="Blog"></i>
-                    <h4>Blog</h4>
+                    <h4>armas</h4>
                 </div>
             </a>
 
-            <a href="#">
+            <a href="selecccion_de_avatar.php">
                 <div class="option">
                     <i class="far fa-id-badge" title="Contacto"></i>
-                    <h4>Contacto</h4>
+                    <h4>avatar confirmSelection</h4>
                 </div>
             </a>
 
-            <a href="#">
+            <a href="admin/mapas.php">
                 <div class="option">
                     <i class="far fa-address-card" title="Nosotros"></i>
-                    <h4>Nosotros</h4>
+                    <h4>mapas</h4>
                 </div>
             </a>
 

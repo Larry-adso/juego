@@ -1,14 +1,27 @@
+<?php
+include("../db/conexion.php");
+
+
+$consulta = $conexion->prepare("SELECT * FROM mapas ");
+$consulta->execute();
+$info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/mundos.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-XXX" crossorigin="anonymous" />
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 
   <title>Mundos</title>
 </head>
+
 <body>
   <header>
     <div class="top-container">
@@ -18,10 +31,10 @@
         <button class="room-button" onclick="activateRoom(this)">Sala 2</button>
         <!-- Otros botones -->
         <div class="icons">
-          <a href="#inicio"><img src="../img/home_263115.png" ></a>
-          <a href="#armas"><img src="../img/missile_838464.png" ></a>
-          <a href="#perfil"><img src="../img/mundo.png" ></a>
-          <a href="#mundos"><img src="../img/user_1144760.png" ></a>
+          <a href="#inicio"><img src="../img/home_263115.png"></a>
+          <a href="#armas"><img src="../img/missile_838464.png"></a>
+          <a href="#perfil"><img src="../img/mundo.png"></a>
+          <a href="#mundos"><img src="../img/user_1144760.png"></a>
         </div>
       </div>
       <h1>Salas</h1>
@@ -30,27 +43,54 @@
   </header>
 
   <main>
-    <div class="rooms-container">
-      <!-- Contenedor de las salas -->
-      <div class="room">
-        <img src="../img/mundo1.jpg" alt="Sala 1" width="300" height="200">
-        <div class="info">
-          <h2>Sala 1</h2>
-          <p>Jugadores: 4/8</p>
-          <button class="join-button">Unirme</button>
-        </div>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <?php
+        $count = 0;
+        foreach ($info as $mapas) {
+          $class = ($count == 0) ? 'active' : '';
+        ?>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?php echo $count; ?>" class="<?php echo $class; ?>" aria-current="<?php echo $class; ?>" aria-label="Slide <?php echo $count; ?>"></button>
+        <?php
+          $count++;
+        }
+        ?>
       </div>
-      <div class="room">
-        <img src="../img/mundo2.jpg" alt="Sala 2" width="300" height="200">
-        <div class="info">
-          <h2>Sala 2</h2>
-          <p>Jugadores: 3/8</p>
-          <button class="join-button">Unirme</button>
-        </div>
+      <div class="carousel-inner">
+        <?php
+        $count = 0;
+        foreach ($info as $mapas) {
+          $class = ($count == 0) ? 'active' : '';
+        ?>
+          <div class="carousel-item <?php echo $class; ?>">
+            <img src="<?php echo substr($mapas['ruta'], 3); ?>" class="d-block w-100" style="height: 80%; width:70%" alt="">
+            <div class="carousel-caption d-none d-md-block">
+              <h3><?php echo $mapas['nombre']; ?></h3>
+              <h2><?php echo $mapas['player']; ?> : Jugadores en cola</h2>
+              <form action="" method="post">
+                <input type="hidden" name="id_mapa" value="<?php echo $mapas['id']; ?>">
+                <input type="submit" name="agregar_carrito" class="btn btn-success" value="Elegir mapa">
+              </form>
+            </div>
+          </div>
+        <?php
+          $count++;
+        }
+        ?>
       </div>
-      <!-- Agregar más salas según sea necesario -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
     </div>
   </main>
+
+
+
 
   <script>
     function activateRoom(button) {
@@ -61,5 +101,9 @@
       button.classList.add('active');
     }
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
 </body>
-</html>
