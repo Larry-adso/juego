@@ -115,3 +115,14 @@ main {
   transform: scale(1.05);
 }
 
+.title {
+    color: black; /* Cambia el color del texto a negro */
+    border: 2px solid red; /* Agrega un borde rojo */
+    padding: 5px; /* Añade espacio alrededor del texto */
+}
+
+.subtitle {
+    color: black; /* Cambia el color del texto a negro */
+    border: 2px solid red; /* Agrega un borde rojo */
+    padding: 5px; /* Añade espacio alrededor del texto */
+}

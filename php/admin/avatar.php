@@ -19,11 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (move_uploaded_file($_FILES['ruta']['tmp_name'], $rutaArchivo)) {
             // Obtener la descripción, el nombre y el precio del formulario
             $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : '';
+            $Descripcion = isset($_POST['Descripcion']) ? $_POST['Descripcion'] : '';
+
 
             // Utilizar consultas preparadas para evitar inyecciones SQL
-            $sql = "INSERT INTO avatar ( ruta, nombre) VALUES ( ?, ?)";
+            $sql = "INSERT INTO avatar ( ruta, nombre,Descripcion) VALUES ( ?, ?,?)";
             $stmt = $conexion->prepare($sql);
-            $stmt->bind_param("ss", $rutaArchivo, $nombre);
+            $stmt->bind_param("sss", $rutaArchivo, $nombre, $Descripcion);
 
             if ($stmt->execute()) {
 

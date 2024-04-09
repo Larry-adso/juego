@@ -24,10 +24,14 @@
                         <div class="card-body">
                             <form action="../../php/admin/avatar.php" method="post" enctype="multipart/form-data">
                                 <div class="mb-3">
-                                <h2 style="text-align: center;" >Guardar Avatar </h2>
+                                    <h2 style="text-align: center;">Guardar Avatar </h2>
                                     <hr>
+                                    <br>
                                     <label for="nombre" class="form-label">Nombre:</label>
                                     <input type="text" class="form-control" id="nombre" name="nombre">
+                             <br>
+                                    <label for="Descripcion" class="form-label">Descripcion:</label>
+                                    <input type="text" class="form-control" id="Descripcion" name="Descripcion">
                                 </div>
                                 <div class="mb-3">
                                     <label for="ruta" class="form-label">Selecciona una foto:</label>
