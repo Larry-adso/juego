@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 
@@ -36,6 +37,11 @@
                                 <div class="mb-3">
                                     <label for="ruta" class="form-label">Selecciona una foto:</label>
                                     <input type="file" class="form-control" id="ruta" name="ruta" required>
+                                </div>
+                                <br>
+                                <div class="mb-3">
+                                    <label for="ruta_animacion" class="form-label">Selecciona una ruta_animacion:</label>
+                                    <input type="file" class="form-control" id="ruta_animacion" name="ruta_animacion" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                             </form>

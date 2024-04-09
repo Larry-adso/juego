@@ -1,12 +1,12 @@
 <?php
 include("../db/conexion.php");
 
-
 $consulta = $conexion->prepare("SELECT * FROM avatar ");
 $consulta->execute();
 $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
 
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,7 +15,6 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
   <link rel="stylesheet" href="../css/avatar.css">
   <title>Selección de Avatar</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-
 </head>
 <body>
   <header>
@@ -37,7 +36,7 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
         <div class="card">
           <div class="row no-gutters">
             <div class="col-md-6">
-              <img src="<?php echo substr($avatar['ruta'], 3); ?>" class="card-img-top" style="height: 350px; width:300px;">
+              <img src="<?php echo substr($avatar['ruta'], 3); ?>" class="card-img-top" style="height: 350px; width:280px;">
             </div>
             <div class="col-md-6">
               <div class="card-body">
@@ -46,8 +45,8 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
                 <br>
                 <br>
                 <br>
-                <form action="" method="post">
-                  <input type="hidden" name="id_mapa" value="<?php echo $avatar['id']; ?>">
+                <form action="agente.php" method="post">
+                  <input type="hidden" name="id_avatar" value="<?php echo $avatar['id']; ?>">
                   <input type="submit" name="agregar_carrito" class="btn btn-success" value="Elegir Agente">
                 </form>
               </div>
@@ -57,8 +56,6 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
       </div>
     <?php } ?>
   </div>
-</main>
-
 
   <script>
     let selectedAvatar = null;
@@ -80,10 +77,9 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
       }
     }
   </script>
+
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>
 </html>
