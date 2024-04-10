@@ -1,100 +1,126 @@
-body {
-    background-image:url('../img/inicio.png') ;
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-.container {
+body {
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
+    justify-content: center;
+    background-image: url('../img/inicio.png');
+    background-size: cover;
+    background-position: center;
 }
 
-.card {
-    background-color: #000000;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(244, 236, 236, 0.1);
-    padding: 40px;
-    width: 650px;
-}
-
-
-
-.card-title {
-    color: #fff;
-    font-size: 24px;
-    margin-bottom: 30px;
+.login-form {
+    background: rgba(64, 64, 64, 0.15);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    border-radius: 16px;
+    backdrop-filter: blur(25px);
     text-align: center;
+    color: white;
+    width: 400px;
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.15);
 }
 
-.form-label {
-    color: #fff;
-    font-size: 16px;
+.login-title {
+    font-size: 40px;
+    margin-bottom: 40px;
 }
 
-.form-control {
-    background-color: #474747;
-    border-color: #2f2f2f;
-    color: #fff;
+.input-box {
+    margin: 20px 0;
+    position: relative;
 }
-
-.btn-success {
-    background-color: #ff46d1;
-    border-color: #ffffff;
-    color: #fff;
-    transition: all 0.3s ease;
-}
-
-.btn-success:hover {
-    background-color: #e112ad;
-    border-color: #ffffff;
-}
-
-.btn-danger {
-    background-color: #7289da;
-    border-color: #ffffff;
-    color: #fff;
-    transition: all 0.3s ease;
-}
-
-.btn-success,
-.btn-danger {
+.input-box input {
     width: 100%;
-    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    padding: 12px 12px 12px 45px;
+    border-radius: 99px;
+    outline: 3px solid transparent;
+    transition: 0.3s;
+    font-size: 17px;
+    color: white;
+    font-weight: 600;
+}
+.input-box input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 17px;
+    font-weight: 500;
+}
+.input-box input:focus {
+    outline: 3px solid rgba(255, 255, 255, 0.3);
+}
+.input-box input::-ms-reveal {
+    filter: invert(100%);
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        border-color: #ff4654;
-    }
-    100% {
-        transform: scale(1.1);
-        border-color: #ff5c68;
-    }
+.input-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.8);
 }
 
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.remember-forgot-box {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    font-size: 15px;
 }
 
-.btn-danger:hover {
-    background-color: #5865a6;
-    border-color: #5865a6;
+.remember-forgot-box label {
+    display: flex;
+    gap: 8px;
+    cursor: pointer;
+}
+.remember-forgot-box input {
+    accent-color: white;
+    cursor: pointer;
 }
 
+.remember-forgot-box a {
+    color: white;
+    text-decoration: none;
+}
+.remember-forgot-box a:hover {
+    text-decoration: underline;
+}
 
+.login-btn {
+    width: 100%;
+    padding: 10px 0;
+    background: #2F9CF4;
+    border: none;
+    border-radius: 99px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.login-btn:hover {
+    background: #0B87EC;
+}
+
+.register {
+    margin-top: 15px;
+    font-size: 15px;
+}
+.register a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+.register a:hover {
+    text-decoration: underline;
+}
