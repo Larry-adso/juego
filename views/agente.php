@@ -1,5 +1,4 @@
 <?php
-
 if (isset($_POST['id_avatar'])) {
     // Obtener el ID del avatar seleccionado
     $id_avatar = $_POST['id_avatar'];
