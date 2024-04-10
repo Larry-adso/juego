@@ -14,31 +14,19 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/mundos.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-XXX" crossorigin="anonymous" />
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-
+  <link rel="stylesheet" href="../css/mundos.css">
   <title>Mundos</title>
 </head>
 
 <body>
   <header>
-    <div class="top-container">
-      <div class="room-buttons">
-        <!-- Botones de las diferentes salas -->
-        <button class="room-button active" onclick="activateRoom(this)">Sala 1</button>
-        <button class="room-button" onclick="activateRoom(this)">Sala 2</button>
-        <!-- Otros botones -->
-        <div class="icons">
-          <a href="#inicio"><img src="../img/home_263115.png"></a>
-          <a href="#armas"><img src="../img/missile_838464.png"></a>
-          <a href="#perfil"><img src="../img/mundo.png"></a>
-          <a href="#mundos"><img src="../img/user_1144760.png"></a>
-        </div>
-      </div>
-      <h1>Salas</h1>
-      <button class="back-button">Atrás</button>
+
+  <button class="btn">
+  Atras
+</button>
+
+
     </div>
   </header>
 
