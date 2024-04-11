@@ -20,14 +20,13 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
   <header>
     <div class="top-container">
       <h1>Seleccione su Avatar</h1>
-      <div class="icons">
-        <a href="#inicio"><img src="inicio-icon.png" alt="Inicio"></a>
-        <a href="#armas"><img src="armas-icon.png" alt="Armas"></a>
-        <a href="#perfil"><img src="perfil-icon.png" alt="Perfil"></a>
-        <a href="#mundos"><img src="mundos-icon.png" alt="Mundos"></a>
+
       </div>
-      <button class="back-button">Atrás</button>
-    </div>
+      
+      <button class="btn">
+        Atras
+      </button>
+   
   </header>
 
   <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -47,7 +46,7 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
                 <br>
                 <form action="agente.php" method="post">
                   <input type="hidden" name="id_avatar" value="<?php echo $avatar['id']; ?>">
-                  <input type="submit" name="agregar_carrito" class="btn btn-success" value="Elegir Agente">
+                  <input type="submit" name="agregar_carrito" class="shadow__btn" value="Elegir Agente">
                 </form>
               </div>
             </div>
