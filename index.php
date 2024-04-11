@@ -10,7 +10,7 @@
 <body>
    
     </form>
-    <form action=""class="login-form">
+    <form method="post" action="../php/login_register/login.php" class="login-form">
         <h1 class="login-title">Login</h1>
 
         <div class="input-box">
@@ -30,7 +30,7 @@
             <a href="#">Olvidaste tu contraseña?</a>
         </div>
 
-        <button class="login-btn">Login</button>
+        <button type="submit" class="login-btn">Login</button>
 
         <p class="register">
         No tienes una cuenta?
