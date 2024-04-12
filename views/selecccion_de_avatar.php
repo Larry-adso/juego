@@ -1,5 +1,16 @@
 <?php
 include("../db/conexion.php");
+session_start();
+
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['nickname'])) {
+    echo '<script>
+            alert("Por favor inicie sesión e intente nuevamente");
+            window.location = "../index.php";
+          </script>';
+    session_destroy();
+    die();
+}
 
 $consulta = $conexion->prepare("SELECT * FROM avatar ");
 $consulta->execute();
@@ -39,15 +50,17 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
             </div>
             <div class="col-md-6">
               <div class="card-body">
-                <h5 class="card-title"><?php echo $avatar['nombre']; ?></h5>
+
+              <h5 class="card-title"><?php echo $avatar['id'] . ' : ' . $avatar['nombre']; ?></h5>
                 <h8 class="card-title"><?php echo $avatar['Descripcion']; ?></h8>
                 <br>
                 <br>
-                <br>
-                <form action="agente.php" method="post">
+                <form action="game/procesar_seleccion.php" method="get">
                   <input type="hidden" name="id_avatar" value="<?php echo $avatar['id']; ?>">
-                  <input type="submit" name="agregar_carrito" class="shadow__btn" value="Elegir Agente">
+                  <input type="hidden" name="nickname" value="<?php echo $_SESSION['nickname']; ?>">
+                  <button type="submit" class="btn btn-primary">Seleccionar</button>
                 </form>
+            
               </div>
             </div>
           </div>

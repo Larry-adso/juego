@@ -18,8 +18,6 @@ try {
     $consultaUsuario = $conexion->prepare("SELECT nickname FROM usuarios WHERE nickname = :nickname");
     $consultaUsuario->bindParam(':nickname', $_SESSION['nickname']);
     $consultaUsuario->execute();
-
-    // Obtener el resultado de la consulta
     $usuario = $consultaUsuario->fetch(PDO::FETCH_ASSOC);
 
     // Comprobar si se obtuvo el nombre de usuario correctamente
@@ -83,6 +81,13 @@ $conexion = null;
                 </div>
             </a>
 
+            <a href="lobby.php">
+                <div class="option">
+                    <i class="far fa-file" title="Portafolio"></i>
+                    <h4>jugar</h4>
+                </div>
+            </a>
+
             <a href="admin/avatar.php">
                 <div class="option">
                     <i class="far fa-file" title="Portafolio"></i>
@@ -115,6 +120,20 @@ $conexion = null;
                 <div class="option">
                     <i class="far fa-address-card" title="Nosotros"></i>
                     <h4>mapas</h4>
+                </div>
+            </a>
+
+            <a href="admin/armas.php">
+                <div class="option">
+                    <i class="far fa-address-card" title="Nosotros"></i>
+                    <h4>armas</h4>
+                </div>
+            </a>
+
+            <a href="game/armas_select.php">
+                <div class="option">
+                    <i class="far fa-address-card" title="Nosotros"></i>
+                    <h4>ver armas</h4>
                 </div>
             </a>
 

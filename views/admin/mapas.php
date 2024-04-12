@@ -16,7 +16,7 @@
         <!-- place navbar here -->
     </header>
     <main>
-        <br><br><br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6">
@@ -32,6 +32,18 @@
                                 <div class="mb-3">
                                     <label for="ruta" class="form-label">Selecciona una foto del mapa:</label>
                                     <input type="file" class="form-control" id="ruta" name="ruta" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="zona1" class="form-label">Selecciona una foto zona 1:</label>
+                                    <input type="file" class="form-control" id="zona1" name="zona1" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="zona2" class="form-label">Selecciona una foto zona 2:</label>
+                                    <input type="file" class="form-control" id="zona2" name="zona2" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="zona3" class="form-label">Selecciona una foto zona 3:</label>
+                                    <input type="file" class="form-control" id="zona3" name="zona3" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                             </form>

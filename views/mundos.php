@@ -1,10 +1,19 @@
 <?php
 include("../db/conexion.php");
-
+session_start();
+if (!isset($_SESSION['nickname'])) {
+  echo '<script>
+          alert("Por favor inicie sesión e intente nuevamente");
+          window.location = "../index.php";
+        </script>';
+  session_destroy();
+  die();
+}
 
 $consulta = $conexion->prepare("SELECT * FROM mapas ");
 $consulta->execute();
 $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
+
 
 ?>
 
@@ -22,13 +31,13 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
 <body>
   <header>
 
-  <button class="btn">
-  Atras
-</button>
+ 
+    <a class="btn" href="../"> Atras</a>
 
-
-    </div>
   </header>
+
+
+  <p class="#"><?php echo $_SESSION['nickname']; ?></p>
 
   <main>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -53,11 +62,17 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
           <div class="carousel-item <?php echo $class; ?>">
             <img src="<?php echo substr($mapas['ruta'], 3); ?>" class="d-block w-100" style="height: 80%; width:70%" alt="">
             <div class="carousel-caption d-none d-md-block">
-              <h3 class="title"><?php echo $mapas['nombre']; ?></h3>
-              <h2 class="subtitle"><?php echo $mapas['player']; ?> : Jugadores en cola</h2>
-              <form action="" method="post">
+              <br>
+              <h3 class="title"> jugador :<?php echo $mapas['nombre']; ?></h3>
+              <h4 class="subtitle">En cola : <?php echo $mapas['player']; ?> : </h4>
+              <h4 class="subtitle">En cola : <?php echo $mapas['player2']; ?> : </h4>
+              <h4 class="subtitle">En cola : <?php echo $mapas['player3']; ?> : </h4>
+              <h4 class="subtitle">En cola : <?php echo $mapas['player4']; ?> : </h4>
+              <h4 class="subtitle">En cola : <?php echo $mapas['player5']; ?> : </h4>
+
+              <form action="" method="get">
                 <input type="hidden" name="id_mapa" value="<?php echo $mapas['id']; ?>">
-                <input type="submit" name="agregar_carrito" class="btn btn-success" value="Elegir mapa">
+                <input type="submit" name="" class="btn btn-success" value="Elegir mapa">
               </form>
             </div>
           </div>

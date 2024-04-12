@@ -4,6 +4,9 @@ function showPlayButton() {
 }
 
 function startGame() {
-    // Aquí puedes agregar la lógica para iniciar el juego
-    alert("¡El juego ha comenzado!");
+    // Obtener el ID de usuario del enlace en el botón "Jugar"
+    var userId = '<?php echo $nombreUsuario; ?>';
+    // Redirigir al usuario a la página de selección de avatar con su ID de usuario
+    window.location.href = 'selecccion_de_avatar.php?id=' + userId;
 }
+

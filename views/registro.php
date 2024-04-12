@@ -46,7 +46,7 @@
 
         <p class="register">
         Ya tienes una cuenta?
-        <a href="views/index.php" class="btn btn-danger" role="button">Ingresar</a>
+        <a href="../index.php" class="btn btn-danger" role="button">Ingresar</a>
         </p>
     </form>
 
