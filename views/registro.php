@@ -10,7 +10,7 @@
 <body>
    
     </form>
-    <form method="post" action="../php/login_register/register.php" class="login-form">
+    <form method="post" action="../php/login_register/registro.php" class="login-form">
         <h1 class="login-title">Registro</h1>
 
         <div class="input-box">

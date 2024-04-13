@@ -63,14 +63,9 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
             <img src="<?php echo substr($mapas['ruta'], 3); ?>" class="d-block w-100" style="height: 80%; width:70%" alt="">
             <div class="carousel-caption d-none d-md-block">
               <br>
-              <h3 class="title"> jugador :<?php echo $mapas['nombre']; ?></h3>
-              <h4 class="subtitle">En cola : <?php echo $mapas['player']; ?> : </h4>
-              <h4 class="subtitle">En cola : <?php echo $mapas['player2']; ?> : </h4>
-              <h4 class="subtitle">En cola : <?php echo $mapas['player3']; ?> : </h4>
-              <h4 class="subtitle">En cola : <?php echo $mapas['player4']; ?> : </h4>
-              <h4 class="subtitle">En cola : <?php echo $mapas['player5']; ?> : </h4>
+             
 
-              <form action="" method="get">
+              <form action="game/procesar_mapa.php" method="get">
                 <input type="hidden" name="id_mapa" value="<?php echo $mapas['id']; ?>">
                 <input type="submit" name="" class="btn btn-success" value="Elegir mapa">
               </form>

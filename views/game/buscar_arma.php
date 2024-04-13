@@ -3,7 +3,7 @@
 include("../../db/conexion.php");
 
 // Consulta para seleccionar una fila aleatoria de la tabla 'armas'
-$sql = "SELECT nombre, ruta FROM armas ORDER BY RAND() LIMIT 1";
+$sql = "SELECT id, nombre, ruta FROM armas ORDER BY RAND() LIMIT 1";
 $result = $conexion->query($sql);
 
 // Mostrar el resultado
@@ -12,7 +12,7 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     echo "<h2>Nombres: " . $row["nombre"] . "</h2>";
     echo "<img src='../../img/armas/" . $row["ruta"] . "' alt='Imagen del arma'>";
-    echo "<a href='doc.php?id=" . $row["id"] . "'>Elegir arma</a>";
+    echo "<a href='procesar_arma.php?id_arma=" . $row["id"] . "'>Elegir arma</a>";
 } else {
     echo "No se encontraron armas.";
 }
