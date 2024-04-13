@@ -81,17 +81,10 @@ $conexion = null;
                 </div>
             </a>
 
-<<<<<<< HEAD
-            <a href="avatar.php">
-                <div class="option">
-                    <i class="far fa-file" title="Portafolio"></i>
-                    <h4>avatr</h4>
-=======
             <a href="lobby.php">
                 <div class="option">
                     <i class="far fa-file" title="Portafolio"></i>
                     <h4>jugar</h4>
->>>>>>> 7b957be0a0adf255dde90af2b7c84c89760b705c
                 </div>
             </a>
 
