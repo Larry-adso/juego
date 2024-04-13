@@ -1,40 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Registro de Usuario</title>
-    <link rel="stylesheet" href="../css/registroo.css"> <!-- Enlace a archivo CSS para los estilos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/registroo.css">
 </head>
-
 <body>
-    <div class="container">
-        <h2>Registro de Usuario</h2>
-        <form method="post" action="../php/login_register/registro.php">
-            <div class="form-group">
-                <label for="id">id:</label>
-                <input type="text" id="id" name="id" required>
-            </div>
-            <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-            </div>
-            <div class="form-group">
-                <label for="correo">Correo electrónico:</label>
-                <input type="email" id="correo" name="correo" required>
-            </div>
-            <div class="form-group">
-                <label for="nickname">Nickname:</label>
-                <input type="text" id="nickname" name="nickname" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <!-- Puedes agregar más campos según tus necesidades -->
-            <button type="submit">Registrarse</button>
-        </form>
-    </div>
-</body>
+   
+    </form>
+    <form method="post" action="../php/login_register/registro.php" class="login-form">
+        <h1 class="login-title">Registro</h1>
 
+        <div class="input-box">
+            <i class='bx bxs-user'></i>
+            <input type="text" class="form-control" name="id" id="id" aria-describedby="idHelp" placeholder="Id">
+        </div>
+        <div class="input-box">
+            <i class='bx bxs-user'></i>
+            <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
+        </div>
+        <div class="input-box">
+            <i class='bx bxs-user'></i>
+            <input type="email" class="form-control" name="correo" id="correo" placeholder="Correo Electronico">
+        </div>
+        <div class="input-box">
+            <i class='bx bxs-user'></i>
+            <input type="text" class="form-control" name="nickname" id="nickname" aria-describedby="nicknameHelp" placeholder="Nick name">
+        </div>
+        <div class="input-box">
+            <i class='bx bxs-lock-alt'></i>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+        </div>
+
+
+        <div class="remember-forgot-box">
+            <label for="remember">
+                <input type="checkbox" id="remember">
+                Recordar
+            </label>
+        </div>
+
+        <button type="submit" class="login-btn">Registarse</button>
+
+        <p class="register">
+        Ya tienes una cuenta?
+        <a href="../index.php" class="btn btn-danger" role="button">Ingresar</a>
+        </p>
+    </form>
+
+</body>
 </html>

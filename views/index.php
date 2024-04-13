@@ -18,12 +18,11 @@ try {
     $consultaUsuario = $conexion->prepare("SELECT nickname FROM usuarios WHERE nickname = :nickname");
     $consultaUsuario->bindParam(':nickname', $_SESSION['nickname']);
     $consultaUsuario->execute();
-
-    // Obtener el resultado de la consulta
     $usuario = $consultaUsuario->fetch(PDO::FETCH_ASSOC);
 
     // Comprobar si se obtuvo el nombre de usuario correctamente
     if (!$usuario) {
+
         throw new Exception("El usuario no fue encontrado en la base de datos");
     }
 
@@ -82,43 +81,70 @@ $conexion = null;
                 </div>
             </a>
 
+<<<<<<< HEAD
             <a href="avatar.php">
                 <div class="option">
                     <i class="far fa-file" title="Portafolio"></i>
                     <h4>avatr</h4>
+=======
+            <a href="lobby.php">
+                <div class="option">
+                    <i class="far fa-file" title="Portafolio"></i>
+                    <h4>jugar</h4>
+>>>>>>> 7b957be0a0adf255dde90af2b7c84c89760b705c
                 </div>
             </a>
 
-            <a href="#">
+            <a href="admin/avatar.php">
+                <div class="option">
+                    <i class="far fa-file" title="Portafolio"></i>
+                    <h4>avatar</h4>
+                </div>
+            </a>
+
+            <a href="mundos.php">
                 <div class="option">
                     <i class="fas fa-video" title="Cursos"></i>
-                    <h4>Cursos</h4>
+                    <h4>mundos</h4>
                 </div>
             </a>
 
-            <a href="#">
+            <a href="armas.php">
                 <div class="option">
                     <i class="far fa-sticky-note" title="Blog"></i>
-                    <h4>Blog</h4>
+                    <h4>armas</h4>
                 </div>
             </a>
 
-            <a href="#">
+            <a href="selecccion_de_avatar.php">
                 <div class="option">
                     <i class="far fa-id-badge" title="Contacto"></i>
-                    <h4>Contacto</h4>
+                    <h4>avatar confirmSelection</h4>
                 </div>
             </a>
 
-            <a href="#">
+            <a href="admin/mapas.php">
                 <div class="option">
                     <i class="far fa-address-card" title="Nosotros"></i>
-                    <h4>Nosotros</h4>
+                    <h4>mapas</h4>
+                </div>
+            </a>
+
+            <a href="admin/armas.php">
+                <div class="option">
+                    <i class="far fa-address-card" title="Nosotros"></i>
+                    <h4>armas</h4>
+                </div>
+            </a>
+
+            <a href="game/armas_select.php">
+                <div class="option">
+                    <i class="far fa-address-card" title="Nosotros"></i>
+                    <h4>ver armas</h4>
                 </div>
             </a>
 
         </div>
-
     </div>
 
     <main>
