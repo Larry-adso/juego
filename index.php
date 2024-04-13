@@ -24,16 +24,17 @@
 
         <div class="remember-forgot-box">
             <label for="remember">
+                
                 <input type="checkbox" id="remember">
                 Recordar
             </label>
-            <a href="#">Olvidaste dx tu contraseña?</a>
+            <a href="#">Olvidaste dx ? tu contraseña?</a>
         </div>
 
         <button type="submit" class="login-btn">Login</button>
 
         <p class="register">
-        No tienes una cuenta?
+        No tienes una cuenta? 
         <a href="views/registro.php" class="btn btn-danger" role="button">Crear cuenta</a>
         </p>
     </form>
