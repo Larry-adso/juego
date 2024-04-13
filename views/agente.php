@@ -1,7 +1,19 @@
 <?php
-if (isset($_POST['id_avatar'])) {
+
+session_start();
+
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['nickname'])) {
+    echo '<script>
+            alert("Por favor inicie sesión e intente nuevamente");
+            window.location = "../index.php";
+          </script>';
+    session_destroy();
+    die();
+}
+if (isset($_GET['id_avatar'])) {
     // Obtener el ID del avatar seleccionado
-    $id_avatar = $_POST['id_avatar'];
+    $id_avatar = $_GET['id_avatar'];
 
     // Aquí puedes realizar la consulta con el ID del avatar
     // Por ejemplo:
@@ -58,12 +70,19 @@ if (isset($_POST['id_avatar'])) {
     </main>
 
     <script>
-        function startTimer(videoElement) {
-            setTimeout(function() {
-                window.location.href = 'mundos.php';
-            }, 17000); // 30 segundos
-        }
-    </script>
+    function startTimer(videoElement) {
+        setTimeout(function() {
+            // Obtener el ID del avatar seleccionado
+            var id_avatar = <?php echo $id_avatar; ?>;
+            // Obtener el nombre de usuario que inició sesión
+            var nickname = '<?php echo $_SESSION['nickname']; ?>';
+            // Redireccionar a la página de procesamiento con el ID del avatar y el nombre de usuario
+            window.location.href = 'game/procesar_seleccion.php?id_avatar=' + id_avatar + '&nickname=' + nickname;
+        }, 13000); // 30 segundos
+    }
+</script>
+
+
 
     <footer>
         <!-- place footer here -->
