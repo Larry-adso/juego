@@ -27,7 +27,7 @@
                 <input type="checkbox" id="remember">
                 Recordar
             </label>
-            <a href="#">Olvidaste tu contraseña?</a>
+            <a href="#">Olvidaste dx tu contraseña?</a>
         </div>
 
         <button type="submit" class="login-btn">Login</button>
