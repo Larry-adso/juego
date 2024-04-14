@@ -6,6 +6,10 @@ body, html {
   height: 100%;
 }
 
+header{
+  padding: 10px;
+}
+
 .btn {
   font-size: 1.2rem;
   padding: 1rem 2.5rem;
@@ -34,8 +38,11 @@ body, html {
 
 
 .carousel {
-  width: 100%;
-  height: 100vh; /* Establece la altura del carrusel al 100% del viewport height */
+  width: 70%; /* Ancho del carrusel */
+  margin-left: auto; /* Margen izquierdo automático */
+  margin-right: auto;
+  margin-top: -4%; /* Margen derecho automático */
+  height: 100vh;
 }
 
 .carousel-item {
@@ -50,12 +57,13 @@ body, html {
 
 .carousel-caption {
   position: absolute;
-  bottom: 160px; /* Ajusta la distancia desde la parte inferior del carrusel */
-  left: 500px;
-  right: 500px;
+  bottom: 190px; /* Ajusta la distancia desde la parte inferior del carrusel */
+  left: 0;
+  right: 0;
   padding: 40px; /* Ajusta el relleno del carrusel caption */
-  background: rgba(255, 255, 255, 0.5); /* Ajusta el color de fondo del carrusel caption */
-  color: rgb(0, 0, 0); /* Ajusta el color del texto del carrusel caption */
+  background: transparent; /* Ajusta el color de fondo del carrusel caption */
+  color: rgb(0, 0, 0);
+  text-align: center;
 }
 
 .title {

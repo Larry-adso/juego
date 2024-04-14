@@ -36,13 +36,13 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
 
     </div>
 
-    <button class="btn">
+    <button class="btns">
       Atras
     </button>
 
   </header>
 
-  <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="row row-cols-1 row-cols-md-3 g-4 ">
     <?php foreach ($info as $avatar) { ?>
       <div class="col">
         <div class="card">
@@ -60,7 +60,7 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
                 <form action="agente.php" method="get">
                   <input type="hidden" name="id_avatar" value="<?php echo $avatar['id']; ?>">
                   <input type="hidden" name="nickname" value="<?php echo $_SESSION['nickname']; ?>">
-                  <button type="submit" class="btn btn-primary">Seleccionar</button>
+                  <button type="submit" class="shadow__btn">Seleccionar</button>
                 </form>
 
 

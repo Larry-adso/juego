@@ -40,7 +40,7 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
 
         </div>
 
-        <button class="btn">
+        <button class="btns">
             Atras
         </button>
 
@@ -65,7 +65,7 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
                                 <form action="procesar_arma.php" method="get">
                                     <input type="hidden" name="id_arma" value="<?php echo $armas['id']; ?>">
                                     <input type="hidden" name="nickname" value="<?php echo $_SESSION['nickname']; ?>">
-                                    <button type="submit" class="btn btn-primary">Seleccionar</button>
+                                    <button type="submit" class="shadow__btn">Seleccionar</button>
                                 </form>
 
                             </div>

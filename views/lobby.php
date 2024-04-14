@@ -64,7 +64,7 @@ $conexion = null;
                 ?>
                 <li><a href="#">Mundos</a></li>
                 <li><a href="#">Armas</a></li>
-                <li><a href="#">Perfil</a></li>
+                <li><a href="#">Estadistica</a></li>
             </ul>
         </div>
     </div>

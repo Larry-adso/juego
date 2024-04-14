@@ -25,15 +25,48 @@ body, html {
     --bs-gutter-x: 1.5rem;
   }
 
-  .row {
+  .mi-row {
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 0;
     display: flex;
     flex-wrap: wrap;
-    margin-top: calc(-0* var(--bs-gutter-y));
-    margin-right: calc(-.0* var(--bs-gutter-x));
-    margin-left: calc(-.0* var(--bs-gutter-x));
+    margin-top: calc(-1* var(--bs-gutter-y));
+    margin-right: calc(-.5* var(--bs-gutter-x));
+    margin-left: calc(-.5* var(--bs-gutter-x));
   }
+
+  .mi-card {
+    --bs-card-spacer-y: 1rem;
+    --bs-card-spacer-x: 1rem;
+    --bs-card-title-spacer-y: 0.5rem;
+    --bs-card-title-color: ;
+    --bs-card-subtitle-color: ;
+    --bs-card-border-width: var(--bs-border-width);
+    --bs-card-border-color: var(--bs-border-color-translucent);
+    --bs-card-border-radius: var(--bs-border-radius);
+    --bs-card-box-shadow: ;
+    --bs-card-inner-border-radius: calc(var(--bs-border-radius) -(var(--bs-border-width)));
+    --bs-card-cap-padding-y: 0.5rem;
+    --bs-card-cap-padding-x: 1rem;
+    --bs-card-cap-bg: rgba(var(--bs-body-color-rgb), 0.03);
+    --bs-card-cap-color: ;
+    --bs-card-height: ;
+    --bs-card-color: ;
+    --bs-card-bg: var(--bs-body-bg);
+    --bs-card-img-overlay-padding: 1rem;
+    --bs-card-group-margin: 0.75rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: var(--bs-card-height);
+    color: var(--bs-body-color);
+    word-wrap: break-word;
+    background-color: var(--bs-card-bg);
+    background-clip: border-box;
+    border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+    border-radius: var(--bs-card-border-radius);
+}
 
   h1 
   
@@ -43,15 +76,15 @@ body, html {
     justify-content: space-between;
   }
   
-  .btn {
+  .btns {
     font-size: 1.2rem;
-    padding: 1rem 2.5rem;
+    padding: 0.60rem 2rem;
     border: none;
     outline: none;
     border-radius: 0.4rem;
     cursor: pointer;
     text-transform: uppercase;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(30, 47, 111);
     color: rgb(234, 234, 234);
     font-weight: 700;
     transition: 0.6s;
@@ -59,11 +92,11 @@ body, html {
     -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0,0,0,0.4));
   }
   
-  .btn:active {
+  .btns:active {
     scale: 0.92;
   }
   
-  .btn:hover {
+  .btns:hover {
     background: rgb(2,29,78);
     background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
     color: rgb(127, 127, 133);
@@ -114,7 +147,7 @@ body, html {
   }
   
   .shadow__btn:hover {
-    box-shadow: 0 0 5px rgb(0,140,255),
+    box-shadow: 0 0 5px rgb(6, 67, 117),
                 0 0 25px rgb(0,140,255),
                 0 0 50px rgb(0,140,255),
                 0 0 100px rgb(0,140,255);
