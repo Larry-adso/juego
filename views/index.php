@@ -49,7 +49,7 @@ $conexion = null;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú lateral responsive - MagtimusPro</title>
+    <title>Menú admin</title>
 
     <link rel="stylesheet" href="../css/nav.css">
 
@@ -102,7 +102,7 @@ $conexion = null;
                 </div>
             </a>
 
-            <a href="armas.php">
+            <a href="game/armas_select.php">
                 <div class="option">
                     <i class="far fa-sticky-note" title="Blog"></i>
                     <h4>armas</h4>
@@ -141,7 +141,7 @@ $conexion = null;
     </div>
 
     <main>
-
+        <h1>hola mundo</h1>
 
     </main>
 

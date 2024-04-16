@@ -11,6 +11,10 @@ if (!isset($_SESSION['nickname'])) {
     die();
 }
 
+include("../../db/conexion.php");
+
+
+
 
 
 
