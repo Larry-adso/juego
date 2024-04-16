@@ -11,6 +11,7 @@ if (!isset($_SESSION['nickname'])) {
     die();
 }
 
+<<<<<<< HEAD
 include("../../db/PDO.php");
 
 try {
@@ -80,3 +81,9 @@ $info = $sala->fetchAll(PDO::FETCH_ASSOC);
 </body>
 
 </html>
+=======
+
+
+
+?>
+>>>>>>> 9408babb735a7e8f3d296f86fdc97b29b93c73d3
