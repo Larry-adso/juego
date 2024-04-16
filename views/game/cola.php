@@ -49,7 +49,7 @@ if ($resultado->num_rows > 0) {
 $conexion->close();
 ?>
 
-<a href="">iniciare</a>
+<a href="../enfrentamientos/inir.php">iniciare</a>
 
 </body>
 </html>
