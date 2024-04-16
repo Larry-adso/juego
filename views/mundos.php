@@ -60,7 +60,7 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
           $class = ($count == 0) ? 'active' : '';
         ?>
           <div class="carousel-item <?php echo $class; ?>">
-            <img src="<?php echo substr($mapas['ruta'], 3); ?>" class="d-block w-100" style="height: 80%; width:70%" alt="">
+            <img src="<?php echo substr($mapas['ruta'], 3); ?>" class="d-block w-100"  alt="">
             <div class="carousel-caption d-none d-md-block">
               <br>
              
