@@ -28,7 +28,7 @@
                 <input type="checkbox" id="remember">
                 Recordar
             </label>
-            <a href="#">Olvidaste dx ? tu contraseña?</a>
+            <a href="recuperar_contra.php">Olvidaste tu contraseña?</a>
         </div>
 
         <button type="submit" class="login-btn">Login</button>
