@@ -49,7 +49,7 @@ $conexion = null;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú lateral </title>
+    <title>Menú admin</title>
 
     <link rel="stylesheet" href="../css/nav.css">
 
@@ -91,23 +91,17 @@ $conexion = null;
             <a href="admin/avatar.php">
                 <div class="option">
                     <i class="far fa-file" title="Portafolio"></i>
-                    <h4>avatar</h4>
+                    <h4>avatar crear</h4>
                 </div>
             </a>
 
             <a href="mundos.php">
                 <div class="option">
                     <i class="fas fa-video" title="Cursos"></i>
-                    <h4>mundos</h4>
+                    <h4>mundos ver</h4>
                 </div>
             </a>
 
-            <a href="armas.php">
-                <div class="option">
-                    <i class="far fa-sticky-note" title="Blog"></i>
-                    <h4>armas</h4>
-                </div>
-            </a>
 
             <a href="selecccion_de_avatar.php">
                 <div class="option">
@@ -119,14 +113,14 @@ $conexion = null;
             <a href="admin/mapas.php">
                 <div class="option">
                     <i class="far fa-address-card" title="Nosotros"></i>
-                    <h4>mapas</h4>
+                    <h4>mapas crear</h4>
                 </div>
             </a>
 
             <a href="admin/armas.php">
                 <div class="option">
                     <i class="far fa-address-card" title="Nosotros"></i>
-                    <h4>armas</h4>
+                    <h4>armas crear</h4>
                 </div>
             </a>
 
@@ -141,7 +135,7 @@ $conexion = null;
     </div>
 
     <main>
-
+        <h1>hola mundo</h1>
 
     </main>
 

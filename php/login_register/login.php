@@ -20,6 +20,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $mensaje_error = "Usuario o contraseña incorrectos.";
         header("Location: ../../index.php");
-    }
+    }/* else{
+     echo '<script>
+            alert("el usuario esta inactivo comuniquese con su administrador");
+            window.location = "../index.php";
+          </script>';
+        }
+          */
     $conexion->close();
 }

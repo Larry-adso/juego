@@ -1,0 +1,21 @@
+/* Estilos para la barra de progreso */
+.progress-container {
+    position: relative;
+    height: 20px;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #af4c4c; /* Color de fondo de la barra de progreso */
+    width: 0; /* La anchura de la barra de progreso se establecerá dinámicamente en PHP */
+}
+
+.progress-text {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 12px;
+    line-height: 20px;
+}
