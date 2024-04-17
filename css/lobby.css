@@ -17,14 +17,7 @@ body {
     height: 100vh;
 }
 
-.sidebar-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
 
-.sidebar-header h1 {
-    font-size: 30px;
-}
 
 .sidebar-menu ul {
     list-style: none;
@@ -74,4 +67,25 @@ body {
 
 #play-button:hover {
     background-color: #a903a9;
+}
+.sidebar-header {
+    border: 2px solid #ccc; /* Establece un borde sólido de 2px de ancho con color gris claro */
+    border-radius: 10px; /* Añade esquinas redondeadas */
+    padding: 10px; /* Añade espacio interno para el contenido */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Añade una sombra suave */
+    background-color: #f9f9f9; /* Establece un color de fondo */
+    text-align: center; /* Centra el contenido horizontalmente */
+    transition: background-color 0.3s ease; /* Agrega una transición suave */
+}
+
+.sidebar-header:hover {
+    background-color: rgba(249, 249, 249, 0.8); /* Cambia el color de fondo a uno más transparente en hover */
+}
+
+.sidebar-header h3 {
+    color: #333; /* Color del texto para los encabezados h3 */
+}
+
+.sidebar-header p {
+    color: #666; /* Color del texto para los párrafos */
 }

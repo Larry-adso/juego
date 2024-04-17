@@ -15,7 +15,7 @@ include("../db/PDO.php");
 
 try {
     // Preparar y ejecutar la consulta
-    $consultaUsuario = $conexion->prepare("SELECT nickname FROM usuarios WHERE nickname = :nickname");
+    $consultaUsuario = $conexion->prepare("SELECT * FROM usuarios WHERE nickname = :nickname");
     $consultaUsuario->bindParam(':nickname', $_SESSION['nickname']);
     $consultaUsuario->execute();
     $usuario = $consultaUsuario->fetch(PDO::FETCH_ASSOC);
@@ -27,6 +27,8 @@ try {
     }
 
     $nombreUsuario = $usuario['nickname'];
+    $puntaje = $usuario['puntaje'];
+    $nivel = $usuario['nivel'];
 } catch (PDOException $e) {
     // Manejar errores de PDO
     echo "Error de PDO: " . $e->getMessage();
@@ -52,9 +54,12 @@ $conexion = null;
 <body>
     <div class="sidebar">
         <div class="sidebar-header">
-            <h1>Bienvenido a Valorant</h1>
+            <h3>Bienvenido a Valorant</h3>
             <p> <?php echo $nombreUsuario; ?></p>
-
+            <h3>puntos</h3>
+            <p> <?php echo $puntaje; ?></p>
+            <h3>nivel</h3>
+            <p> <?php echo $nivel; ?></p>
         </div>
         <div class="sidebar-menu">
             <ul>
