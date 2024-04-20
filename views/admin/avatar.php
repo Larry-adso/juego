@@ -1,63 +1,58 @@
+<?php
+    include '../../db/conexion.php';
 
-<!doctype html>
+    // Mostrar mensajes de éxito o error
+    if(isset($_SESSION['message'])) {
+        echo '<div class="alert alert-'.$_SESSION['msg_type'].' alert-dismissible fade show" role="alert">
+                '.$_SESSION['message'].'
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>';
+        unset($_SESSION['message']);
+    }
+?>
+
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>avatar</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-    <!-- Bootstrap CSS v5.2.1 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREAR AVATARES</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-
 <body>
-    <header>
-        <!-- place navbar here -->
-    </header>
-    <main>
-        <br><br><br><br><br><br><br><br><br><br>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <form action="../../php/admin/avatar.php" method="post" enctype="multipart/form-data">
-                                <div class="mb-3">
-                                    <h2 style="text-align: center;">Guardar Avatar </h2>
-                                    <hr>
-                                    <br>
-                                    <label for="nombre" class="form-label">Nombre:</label>
-                                    <input type="text" class="form-control" id="nombre" name="nombre">
-                             <br>
-                                    <label for="Descripcion" class="form-label">Descripcion:</label>
-                                    <input type="text" class="form-control" id="Descripcion" name="Descripcion">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="ruta" class="form-label">Selecciona una foto:</label>
-                                    <input type="file" class="form-control" id="ruta" name="ruta" required>
-                                </div>
-                                <br>
-                                <div class="mb-3">
-                                    <label for="ruta_animacion" class="form-label">Selecciona una ruta_animacion:</label>
-                                    <input type="file" class="form-control" id="ruta_animacion" name="ruta_animacion" required>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Guardar</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <!-- place footer here -->
-    </footer>
-    <!-- Bootstrap JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <div class="container">
+        <h2 class="mt-4 mb-4">CRUD AVATARES</h2>
+        <a href="../crud/avatares/create.php" class="btn btn-primary mb-4">Agregar Nuevo Avatar</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Imagen</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    $result = $conexion->query("SELECT * FROM avatar");
+                    while ($row = $result->fetch_assoc()): ?>
+                    <tr>
+                        <td><?php echo $row['id']; ?></td>
+                        <td><?php echo $row['nombre']; ?></td>
+                        <td><img src="<?php echo $row['img']; ?>" class="avatar-img" alt="<?php echo $row['nombre']; ?>"></td>
+                        <td>
+                            <a href="../crud/avatares/update.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-sm">Editar</a>
+                            <a href="../crud/avatares/delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">Eliminar</a>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
 </html>
