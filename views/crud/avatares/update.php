@@ -20,7 +20,9 @@
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $nombre = $row['nombre'];
-            $img = $row['img'];
+            $ruta = $row['ruta'];
+            $Descripcion = $row['Descripcion'];
+            $ruta_animacion = $row['ruta_animacion'];
         }
     }
 ?>
@@ -43,8 +45,16 @@
                 <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $nombre; ?>" required>
             </div>
             <div class="form-group">
-                <label for="img">Imagen (URL):</label>
-                <input type="text" class="form-control" id="img" name="img" value="<?php echo $img; ?>" required>
+                <label for="ruta">Ruta:</label>
+                <input type="file" class="form-control" id="ruta" name="ruta" value="<?php echo $ruta; ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="Descripcion">Descripcion:</label>
+                <input type="text" class="form-control" id="Descripcion" name="Descripcion" value="<?php echo $Descripcion; ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="ruta_animacion">Ruta Animacion:</label>
+                <input type="file" class="form-control" id="ruta_animacion" name="ruta_animacion" value="<?php echo $ruta_animacion; ?>" required>
             </div>
             <button type="submit" class="btn btn-primary">Actualizar</button>
         </form>

@@ -10,6 +10,8 @@ body {
     display: flex;
 }
 
+
+
 .sidebar {
     width: 250px;
     background-color: transparent; /* Hacemos el menú transparente */

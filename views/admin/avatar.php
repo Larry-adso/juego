@@ -1,5 +1,6 @@
 <?php
     include '../../db/conexion.php';
+    session_start();
 
     // Mostrar mensajes de éxito o error
     if(isset($_SESSION['message'])) {
@@ -30,7 +31,9 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Imagen</th>
+                    <th>Ruta</th>
+                    <th>Descripcion</th>
+                    <th>Ruta Animacion</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -41,7 +44,9 @@
                     <tr>
                         <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['nombre']; ?></td>
-                        <td><img src="<?php echo $row['img']; ?>" class="avatar-img" alt="<?php echo $row['nombre']; ?>"></td>
+                        <td><img src="<?php echo $row['ruta']; ?>" class="avatar-img" alt="<?php echo $row['nombre']; ?>" width="120px"></td>
+                        <td><?php echo $row['Descripcion']; ?></td>
+                        <td><?php echo $row['ruta_animacion']; ?></td>
                         <td>
                             <a href="../crud/avatares/update.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-sm">Editar</a>
                             <a href="../crud/avatares/delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">Eliminar</a>

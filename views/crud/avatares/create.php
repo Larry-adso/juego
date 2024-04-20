@@ -3,9 +3,12 @@
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nombre = $_POST['nombre'];
-        $img = $_POST['img'];
+        $ruta = $_POST['ruta'];
+        $Descripcion = $_POST['Descripcion'];
+        $ruta_animacion = $_POST['ruta_animacion'];
 
-        $conexion->query("INSERT INTO avatar (nombre, img) VALUES ('$nombre', '$img')");
+
+        $conexion->query("INSERT INTO avatar (nombre, ruta, Descripcion, ruta_animacion) VALUES ('$nombre', '$ruta', '$Descripcion', '$ruta_animacion')");
 
         $_SESSION['message'] = "Avatar agregado exitosamente";
         $_SESSION['msg_type'] = "success";
@@ -32,8 +35,16 @@
                 <input type="text" class="form-control" id="nombre" name="nombre" required>
             </div>
             <div class="form-group">
-                <label for="img">Imagen (URL):</label>
-                <input type="text" class="form-control" id="img" name="img" required>
+                <label for="ruta">Ruta:</label>
+                <input type="file" class="form-control" id="ruta" name="ruta" required>
+            </div>
+            <div class="form-group">
+                <label for="Descripcion">Descripcion:</label>
+                <input type="text" class="form-control" id="Descripcion" name="Descripcion" required>
+            </div>
+            <div class="form-group">
+                <label for="ruta">Ruta Animacion:</label>
+                <input type="file" class="form-control" id="ruta_animacion" name="ruta_animacion" required>
             </div>
             <button type="submit" class="btn btn-primary">Agregar</button>
         </form>
