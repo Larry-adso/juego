@@ -65,7 +65,7 @@ $conexion = null;
             <ul>
                 <?php
                 // Agregar el enlace con el ID de usuario al botón "Jugar"
-                echo "<li><a href='selecccion_de_avatar.php?id=" . $nombreUsuario . "'>Jugar</a></li>";
+                echo "<li><a href='game/vida.php?id=" . $nombreUsuario . "'>Jugar</a></li>";
                 ?>
                 <li><a href="#">Mundos</a></li>
                 <li><a href="#">Armas</a></li>

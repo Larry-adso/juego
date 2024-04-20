@@ -34,7 +34,6 @@ if (isset($_GET['id_avatar'])) {
     }
 
     // Cerrar la conexión y liberar los recursos
-    $consulta->close();
     $conexion->close();
 } else {
     // Si no se recibió un ID de avatar, muestra un mensaje de error o redirecciona a otra página

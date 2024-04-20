@@ -28,7 +28,7 @@
     include("../../db/conexion.php");
 
     // Consulta SQL para obtener los campos de la tabla sala con los nombres del mapa, el arma y el avatar
-    $consulta = "SELECT s.id, s.nickname, m.nombre AS nombre_mapa, a.nombre AS nombre_avatar, ar.nombre AS nombre_arma, s.puntos 
+    $consulta = "SELECT s.id, s.nickname, m.nombre AS nombre_mapa, a.nombre AS nombre_avatar, ar.nombre AS nombre_arma
                  FROM sala s
                  INNER JOIN mapas m ON s.id_mapa = m.id
                  INNER JOIN avatar a ON s.id_avatar = a.id
@@ -49,7 +49,6 @@
                             <th>Mapa</th>
                             <th>Avatar</th>
                             <th>Arma</th>
-                            <th>Puntos</th>
                         </tr>
                     </thead>
                     <tbody>";
@@ -61,7 +60,6 @@
                     <td>" . $fila['nombre_mapa'] . "</td>
                     <td>" . $fila['nombre_avatar'] . "</td>
                     <td>" . $fila['nombre_arma'] . "</td>
-                    <td>" . $fila['puntos'] . "</td>
                 </tr>";
         }
         echo "</tbody>
@@ -75,7 +73,7 @@
     $conexion->close();
     ?>
 
-    <a href="../enfrentamientos/inir.php">iniciare</a>
+    <a href="../enfrentamientos/inir.php">iniciar</a>
 
     <!-- Agregar el script de Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

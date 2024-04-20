@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         session_start();
 
         $_SESSION['nickname'] = $nickname;
-        header("Location: ../../views/index.php");
+        header("Location: ../../views/lobby.php");
         exit();
     } else {
         $mensaje_error = "Usuario o contraseña incorrectos.";
