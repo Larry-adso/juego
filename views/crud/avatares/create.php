@@ -14,6 +14,22 @@
     }
 ?>
 
+<?php
+    include 'db_config.php';
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $nombre = $_POST['nombre'];
+        $img = $_POST['img'];
+
+        $mysqli->query("INSERT INTO avatar (nombre, img) VALUES ('$nombre', '$img')");
+
+        $_SESSION['message'] = "Avatar agregado exitosamente";
+        $_SESSION['msg_type'] = "success";
+
+        header("location: index.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,3 +58,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
