@@ -80,18 +80,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['disparar']) && isset($
 
                         // Mostrar mensaje de eliminación y quién lo eliminó
                         echo "<script>alert('¡$jugador_objetivo ha sido eliminado por $nickname_disparador!');</script>";
+
                     }
                 }
             }
 
             // Mensaje de disparo exitoso
             $mensaje_disparo = ($parte_cuerpo === 1) ? "cabeza" : "cuerpo";
-            echo "<script>alert('¡Disparo exitoso con un daño de $danio puntos usando $nombre_arma en $mensaje_disparo!');</script>";
+            echo "<script>alert('¡Disparo exitoso con un daño de $danio puntos usando $nombre_arma en $mensaje_disparo!');
+             window.location = 'salas1.php';
+             </script>";
+
         } else {
-            echo "<script>alert('Error: No se encontraron datos del arma del disparador');</script>";
+            echo "<script>alert('Error: No se encontraron datos del arma del disparador');
+            window.location = 'salas1.php';
+            </script>";
         }
     } else {
-        echo "<script>alert('Error: No se encontró el ID del arma del disparador');</script>";
+        echo "<script>alert('Error: No se encontró el ID del arma del disparador');
+        window.location = 'salas1.php';
+        </script>";
     }
 
     // Cerrar la conexión a la base de datos

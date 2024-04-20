@@ -37,7 +37,7 @@ try {
   exit();
 }
 
-// Realizar la consulta para obtener una muestra aleatoria de 3 jugadores con el mismo nivel y mismo mapa
+// Realizar la consulta para obtener una muestra aleatoria de 4 jugadores con el mismo nivel y mismo mapa
 try {
   $conexion = new PDO("mysql:host=localhost;dbname=juego", "root", "");
   $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -51,7 +51,7 @@ try {
                               AND sala.id_mapa = (SELECT id_mapa FROM sala WHERE nickname = :nombreUsuario LIMIT 1)
                               AND sala.nickname != :nombreUsuario
                               ORDER BY RAND()
-                              LIMIT 2");
+                              LIMIT 4");
   $sala->bindParam(':nivelUsuario', $nivelUsuario);
   $sala->bindParam(':nombreUsuario', $nombreUsuario);
   $sala->execute();
@@ -68,7 +68,22 @@ $jugadores = array_column($info, 'nickname');
 // Agregar el nickname del usuario que inició sesión
 array_push($jugadores, $nombreUsuario);
 
-// Redireccionar a salas1.php y pasar los nicknames de los 3 jugadores
-header("Location: salas1.php?jugadores=" . implode(',', $jugadores));
+// Generar un número aleatorio para identificar la sala
+$numeroSala = rand(1, 1000);
+
+// Redireccionar a salas1.php y pasar los nicknames de los 5 jugadores y el número de sala
+header("Location: salas1.php?jugadores=" . implode(',', $jugadores) . "&numero_sala=" . $numeroSala);
+
+// Actualizar el campo 'ocupado' y 'numero_sala' de la sala para los jugadores seleccionados
+try {
+  $updateSala = $conexion->prepare("UPDATE sala SET ocupado = 1, numero_sala = :numeroSala WHERE nickname IN ('" . implode("','", $jugadores) . "')");
+  $updateSala->bindParam(':numeroSala', $numeroSala);
+  $updateSala->execute();
+} catch (PDOException $e) {
+  // Manejar errores de PDO
+  echo "Error de PDO al actualizar el campo 'ocupado': " . $e->getMessage();
+  exit();
+}
+
 exit();
 ?>

@@ -1,7 +1,5 @@
 <?php
-
 session_start();
-
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['nickname'])) {
     echo '<script>
@@ -12,17 +10,13 @@ if (!isset($_SESSION['nickname'])) {
     die();
 }
 if (isset($_GET['id_avatar'])) {
-    // Obtener el ID del avatar seleccionado
     $id_avatar = $_GET['id_avatar'];
 
-    // Aquí puedes realizar la consulta con el ID del avatar
-    // Por ejemplo:
     include("../db/conexion.php");
     $consulta = $conexion->prepare("SELECT * FROM avatar WHERE id = ?");
     $consulta->bind_param("i", $id_avatar);
     $consulta->execute();
     $resultado = $consulta->get_result();
-
     // Verificar si se encontraron resultados
     if ($resultado->num_rows > 0) {
         // Obtener los datos del avatar
@@ -32,7 +26,6 @@ if (isset($_GET['id_avatar'])) {
     } else {
         echo "No se encontró ningún avatar con el ID proporcionado.";
     }
-
     // Cerrar la conexión y liberar los recursos
     $conexion->close();
 } else {
@@ -40,7 +33,6 @@ if (isset($_GET['id_avatar'])) {
     echo "No se proporcionó un ID de avatar válido.";
 }
 ?>
-
 <!doctype html>
 <html lang="en">
 
@@ -49,39 +41,40 @@ if (isset($_GET['id_avatar'])) {
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 </head>
 
 <body>
-    <header>
-        <!-- place navbar here -->
-    </header>
     <main>
         <?php foreach ($resultado as $avatar) { ?>
-            <video autoplay loop class="card-img-top" onplay="startTimer(this)">
-                <source src="<?php echo substr($avatar['ruta_animacion'], 3); ?>" type="video/mp4">
-                <!-- Añade más elementos <source> si la animación tiene diferentes formatos -->
-                Your browser does not support the video tag.
-            </video>
+            <?php if (!empty($avatar['ruta_animacion'])) { ?>
+                <video autoplay loop class="card-img-top" onplay="startTimer(this)">
+                    <source src="<?php echo substr($avatar['ruta_animacion'], 3); ?>" type="video/mp4">
+                    <!-- Añade más elementos <source> si la animación tiene diferentes formatos -->
+                    Your browser does not support the video tag.
+                </video>
+            <?php } else { ?>
+                <script>
+                    // Si la ruta de la animación está vacía, redirecciona a procesar_seleccion.php
+                    window.location.href = 'game/procesar_seleccion.php?id_avatar=<?php echo $id_avatar; ?>&nickname=<?php echo $_SESSION['nickname']; ?>';
+                </script>
+            <?php } ?>
         <?php } ?>
     </main>
 
     <script>
-    function startTimer(videoElement) {
-        setTimeout(function() {
-            // Obtener el ID del avatar seleccionado
-            var id_avatar = <?php echo $id_avatar; ?>;
-            // Obtener el nombre de usuario que inició sesión
-            var nickname = '<?php echo $_SESSION['nickname']; ?>';
-            // Redireccionar a la página de procesamiento con el ID del avatar y el nombre de usuario
-            window.location.href = 'game/procesar_seleccion.php?id_avatar=' + id_avatar + '&nickname=' + nickname;
-        }, 11000); // 30 segundos
-    }
-</script>
-
-
+        function startTimer(videoElement) {
+            setTimeout(function() {
+                // Obtener el ID del avatar seleccionado
+                var id_avatar = <?php echo $id_avatar; ?>;
+                // Obtener el nombre de usuario que inició sesión
+                var nickname = '<?php echo $_SESSION['nickname']; ?>';
+                // Redireccionar a la página de procesamiento con el ID del avatar y el nombre de usuario
+                window.location.href = 'game/procesar_seleccion.php?id_avatar=' + id_avatar + '&nickname=' + nickname;
+            }, 1100); // 30 segundos
+        }
+    </script>
 
     <footer>
         <!-- place footer here -->
