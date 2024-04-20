@@ -12,22 +12,7 @@
 
         header("location: index.php");
     }
-?>
 
-<?php
-    include 'db_config.php';
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $nombre = $_POST['nombre'];
-        $img = $_POST['img'];
-
-        $mysqli->query("INSERT INTO avatar (nombre, img) VALUES ('$nombre', '$img')");
-
-        $_SESSION['message'] = "Avatar agregado exitosamente";
-        $_SESSION['msg_type'] = "success";
-
-        header("location: index.php");
-    }
 ?>
 
 <!DOCTYPE html>
