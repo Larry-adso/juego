@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 $servidor = "localhost";
 $usuario_bd = "root";
 $contraseña_bd = "";

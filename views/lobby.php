@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['nickname'])) {
     echo '<script>
@@ -80,7 +79,6 @@ $conexion = null;
         </button>
     </div>
 
-    <script src="../js/lobby.js"></script>
 </body>
 
 </html>
