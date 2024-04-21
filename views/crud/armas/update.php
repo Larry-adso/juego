@@ -14,7 +14,7 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
         $arma = $_POST['id_tip_arma'];
         $ruta = $_POST['ruta'];
 
-        $mysqli->query("UPDATE mundos SET nombre='$nombre', da_body='$da_body', nombre='$da_head', balas='$balas', recamara='$recamara', id_tip_arma='$arma', ruta='$ruta' WHERE id=$id");
+        $mysqli->query("UPDATE armas SET nombre='$nombre', da_body='$da_body', nombre='$da_head', balas='$balas', recamara='$recamara', id_tip_arma='$arma', ruta='$ruta' WHERE id=$id");
 
         $_SESSION['message'] = "Arma actualizado exitosamente";
         $_SESSION['msg_type'] = "success";

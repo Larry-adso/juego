@@ -1,22 +1,25 @@
 <?php
     include '../../../db/conexion.php';
 
-$consulta = $conexion->prepare("SELECT * FROM tp_armas ");
+$consulta = $conexion->prepare("SELECT * FROM estado ");
 $consulta->execute();
 $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $id = $_POST['id'];
         $nombre = $_POST['nombre'];
-        $da_body = $_POST['da_body'];
-        $da_head = $_POST['da_head'];
-        $balas = $_POST['balas'];
-        $recamara = $_POST['recamara'];
-        $arma = $_POST['id_tip_arma'];
-        $ruta = $_POST['ruta'];
+        $correo = $_POST['correo'];
+        $nickname = $_POST['nickname'];
+        $password = $_POST['password'];
+        $password = hash('sha512', $password);
+        $nivel = $_POST['nivel'];
+        $vida = $_POST['vida'];
+        $puntaje = $_POST['puntaje'];
+        $id_estado = $_POST['id_estado'];
 
-        $mysqli->query("UPDATE mundos SET nombre='$nombre', da_body='$da_body', nombre='$da_head', balas='$balas', recamara='$recamara', id_tip_arma='$arma', ruta='$ruta' WHERE id=$id");
+        $mysqli->query("UPDATE usuarios SET id='$id', nombre='$nombre', correo='$correo', nickname='$nickname', password='$password', nivel='$nivel', vida='$vida', puntaje='$puntaje', id_estado='$id_estado'  WHERE id=$id");
 
-        $_SESSION['message'] = "Arma actualizado exitosamente";
+        $_SESSION['message'] = "Usuario actualizado exitosamente";
         $_SESSION['msg_type'] = "success";
 
         header("location: index.php");
@@ -24,16 +27,18 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
-        $result = $conexion->query("SELECT * FROM armas WHERE id=$id");
+        $result = $conexion->query("SELECT * FROM usuarios WHERE id=$id");
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
+            $id = $row['id'];
             $nombre = $row['nombre'];
-            $da_body = $row['da_body'];
-            $da_head = $row['da_head'];
-            $balas = $row['balas'];
-            $recamara = $row['recamara'];
-            $arma = $row['id_tip_arma'];
-            $ruta = $row['ruta'];
+            $correo = $row['correo'];
+            $nickname = $row['nickname'];
+            $password = $row['password'];
+            $nivel = $row['nivel'];
+            $vida = $row['vida'];
+            $puntaje = $row['puntaje'];
+            $id_estado = $row['id_estado'];
             
         }
     }
@@ -44,48 +49,52 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar Armas</title>
+    <title>Actualizar Usuarios</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
-        <h2 class="mt-4 mb-4">Actualizar Arma</h2>
+        <h2 class="mt-4 mb-4">Actualizar Usuario</h2>
         <form action="" method="POST">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <div class="form-group">
-                <label for="nombre">Nombre:</label>
+                <label for="id">Documento:</label>
+                <input type="int" class="form-control" id="id" name="id" value="<?php echo $id; ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="correo">Nombre:</label>
                 <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $nombre; ?>" required>
             </div>
             <div class="form-group">
-                <label for="da_body">Daño cuerpo:</label>
-                <input type="text" class="form-control" id="da_body" name="da_body" value="<?php echo $da_body; ?>" required>
+                <label for="correo">Correo:</label>
+                <input type="text" class="form-control" id="correo" name="correo" value="<?php echo $correo; ?>" required>
             </div>
             <div class="form-group">
-                <label for="da_head">Daño cabeza:</label>
-                <input type="text" class="form-control" id="da_head" name="da_head" value="<?php echo $da_head; ?>" required>
+                <label for="nickname">Nickname:</label>
+                <input type="text" class="form-control" id="nickname" name="nickname" value="<?php echo $nickname; ?>" required>
             </div>
             <div class="form-group">
-                <label for="balas">Balas:</label>
-                <input type="text" class="form-control" id="balas" name="balas" value="<?php echo $balas; ?>" required>
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" value="<?php echo $password; ?>" required>
             </div>
             <div class="form-group">
-                <label for="recamara">Recamara:</label>
-                <input type="text" class="form-control" id="recamara" name="recamara" value="<?php echo $recamara; ?>" required>
+                <label for="nivel">Nivel:</label>
+                <input type="text" class="form-control" id="nivel" name="nivel" value="<?php echo $nivel; ?>" required>
             </div>
             <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $nombre; ?>" required>
+                <label for="vida">Vida:</label>
+                <input type="text" class="form-control" id="vida" name="vida" value="<?php echo $vida; ?>" required>
             </div>
            
             <div class="form-group">
-                <label for="ruta">Ruta:</label>
-                <input type="file" class="form-control" id="ruta" name="ruta" value="<?php echo $ruta; ?>" required>
+                <label for="puntaje">Puntaje:</label>
+                <input type="text" class="form-control" id="puntaje" name="puntaje" value="<?php echo $puntaje; ?>" required>
             </div>
             <div class="form.group">
-                <label for="id_tip_arma" class="form-label">Tipo de arma</label>
-                 <select class="form-select form-select-lg" name="id_tip_arma" id="id_tip_arma" value="<?php echo $arma; ?>" required>>
-                    <?php foreach ($info as $arma) { ?>
-                     <option value="<?php echo $arma['id']; ?>"> <?php echo $arma['id'] . ' : ' . $arma['tipo_arma']; ?></option>
+                <label for="id_estado" class="form-label">Estado</label>
+                 <select class="form-select form-select-lg" name="id_estado" id="id_estado" value="<?php echo $id_estado; ?>" required>>
+                    <?php foreach ($info as $id_estado) { ?>
+                     <option value="<?php echo $id_estado['id']; ?>"> <?php echo $id_estado['id'] . ' : ' . $id_estado['estado']; ?></option>
                     <?php } ?>
                 </select>
             </div>
