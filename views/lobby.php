@@ -53,12 +53,9 @@ $conexion = null;
 <body>
     <div class="sidebar">
         <div class="sidebar-header">
-            <h3>Bienvenido a Valorant</h3>
+            <h2 class="game-title">Bienvenido a Valorant</h2>
             <p> <?php echo $nombreUsuario; ?></p>
-            <h3>puntos</h3>
-            <p> <?php echo $puntaje; ?></p>
-            <h3>nivel</h3>
-            <p> <?php echo $nivel; ?></p>
+        
         </div>
         <div class="sidebar-menu">
             <ul>
@@ -68,7 +65,7 @@ $conexion = null;
                 ?>
                 <li><a href="#">Mundos</a></li>
                 <li><a href="#">Armas</a></li>
-                <li><a href="#">Estadistica</a></li>
+                <li><a href="#">Perfil</a></li>
             </ul>
         </div>
     </div>

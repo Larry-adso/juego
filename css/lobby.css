@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     background-image: url(../img/lobby1.jpg);
     background-size: cover;
     background-position: center;
@@ -11,7 +11,6 @@ body {
 }
 
 
-
 .sidebar {
     width: 250px;
     background-color: transparent; /* Hacemos el menú transparente */
@@ -19,7 +18,41 @@ body {
     height: 100vh;
 }
 
-
+.sidebar-header {
+    text-align: center;
+  }
+  
+  .game-title {
+    font-size: 30px;
+    color: #fbff16;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .game-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0), rgba(255, 255, 255, 0.7), rgba(255,255,255,0));
+    animation: slide 2s linear infinite;
+  }
+  
+  @keyframes slide {
+    0% {
+      left: -100%;
+    }
+    50% {
+      left: 100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+  
 
 .sidebar-menu ul {
     list-style: none;
@@ -34,14 +67,15 @@ body {
 .sidebar-menu a {
     display: block;
     padding: 10px 20px;
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 50px;
     transition: font-size 0.3s ease; /* Agregamos una transición para el cambio de tamaño del texto */
 }
 
 .sidebar-menu a:hover {
-    font-size: 40px; /* Agrandamos el texto al pasar el cursor */
+    font-size: 60px; /* Agrandamos el texto al pasar el cursor */
+    color: #ff00e6;
 }
 
 .main-content {
@@ -53,8 +87,9 @@ body {
 }
 
 #play-button {
-    background-color: #ffffff;
-    border: none;
+    background-color: #fbff00;
+    border: solid;
+    border-color: #000000;
     border-radius: 50%;
     width: 150px;
     height: 150px;
@@ -68,26 +103,25 @@ body {
 }
 
 #play-button:hover {
-    background-color: #a903a9;
+    background-color: #ff00e6;
 }
 .sidebar-header {
-    border: 2px solid #ccc; /* Establece un borde sólido de 2px de ancho con color gris claro */
+     /* Establece un borde sólido de 2px de ancho con color gris claro */
     border-radius: 10px; /* Añade esquinas redondeadas */
     padding: 10px; /* Añade espacio interno para el contenido */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Añade una sombra suave */
-    background-color: #f9f9f9; /* Establece un color de fondo */
+    background-color: transparent;
     text-align: center; /* Centra el contenido horizontalmente */
-    transition: background-color 0.3s ease; /* Agrega una transición suave */
+    
 }
 
-.sidebar-header:hover {
-    background-color: rgba(249, 249, 249, 0.8); /* Cambia el color de fondo a uno más transparente en hover */
-}
+
 
 .sidebar-header h3 {
     color: #333; /* Color del texto para los encabezados h3 */
 }
 
 .sidebar-header p {
-    color: #666; /* Color del texto para los párrafos */
+    color: #fbff00; /* Color del texto para los párrafos */
+    font-size: x-large;
 }
