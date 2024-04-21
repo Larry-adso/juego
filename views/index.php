@@ -124,10 +124,10 @@ $conexion = null;
                 </div>
             </a>
 
-            <a href="game/armas_select.php">
+            <a href="admin/usuarios.php">
                 <div class="option">
                     <i class="far fa-address-card" title="Nosotros"></i>
-                    <h4>ver armas</h4>
+                    <h4>Usuarios</h4>
                 </div>
             </a>
 
