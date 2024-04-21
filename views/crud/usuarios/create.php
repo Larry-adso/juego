@@ -8,7 +8,7 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $id = $_POST['id'];
-        $nombre = $_POST['nombre'];
+        $nombres = $_POST['nombres'];
         $correo = $_POST['correo'];
         $nickname = $_POST['nickname'];
         $password = $_POST['password'];
@@ -19,7 +19,7 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
         $id_estado = $_POST['id_estado'];
 
 
-        $conexion->query("INSERT INTO usuarios (id, nombre, correo, nickname, password, nivel, vida, puntaje, id_estado) VALUES ('$id', $nombre', '$da_body, '$da_head','$balas', '$recamara', '$id_tip_arma', '$ruta')");
+        $conexion->query("INSERT INTO usuarios (id, nombres, correo, nickname, password, nivel, vida, puntaje, id_estado) VALUES ('$id', $nombres', '$da_body, '$da_head','$balas', '$recamara', '$id_tip_arma', '$ruta')");
 
         $_SESSION['message'] = "Usuario agregado exitosamente";
         $_SESSION['msg_type'] = "success";
@@ -46,8 +46,8 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
                 <input type="int" class="form-control" id="id" name="id" required>
             </div>
             <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                <label for="nombres">nombres:</label>
+                <input type="text" class="form-control" id="nombres" name="nombres" required>
             </div>
             <div class="form-group">
                 <label for="correo">Correo:</label>

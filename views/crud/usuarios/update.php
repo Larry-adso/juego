@@ -7,7 +7,7 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $id = $_POST['id'];
-        $nombre = $_POST['nombre'];
+        $nombres = $_POST['nombres'];
         $correo = $_POST['correo'];
         $nickname = $_POST['nickname'];
         $password = $_POST['password'];
@@ -17,7 +17,7 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
         $puntaje = $_POST['puntaje'];
         $id_estado = $_POST['id_estado'];
 
-        $mysqli->query("UPDATE usuarios SET id='$id', nombre='$nombre', correo='$correo', nickname='$nickname', password='$password', nivel='$nivel', vida='$vida', puntaje='$puntaje', id_estado='$id_estado'  WHERE id=$id");
+        $mysqli->query("UPDATE usuarios SET id='$id', nombres='$nombres', correo='$correo', nickname='$nickname', password='$password', nivel='$nivel', vida='$vida', puntaje='$puntaje', id_estado='$id_estado'  WHERE id=$id");
 
         $_SESSION['message'] = "Usuario actualizado exitosamente";
         $_SESSION['msg_type'] = "success";
@@ -31,7 +31,7 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $id = $row['id'];
-            $nombre = $row['nombre'];
+            $nombres = $row['nombres'];
             $correo = $row['correo'];
             $nickname = $row['nickname'];
             $password = $row['password'];
@@ -62,8 +62,8 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
                 <input type="int" class="form-control" id="id" name="id" value="<?php echo $id; ?>" required>
             </div>
             <div class="form-group">
-                <label for="correo">Nombre:</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $nombre; ?>" required>
+                <label for="correo">nombres:</label>
+                <input type="text" class="form-control" id="nombres" name="nombres" value="<?php echo $nombres; ?>" required>
             </div>
             <div class="form-group">
                 <label for="correo">Correo:</label>

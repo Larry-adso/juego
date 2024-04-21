@@ -1,34 +1,36 @@
 <?php
-include("../db/PDO.php");
-
-session_start();
-// Verificar si el usuario está autenticado
-if (!isset($_SESSION['nickname'])) {
-    echo '<script>
-            alert("Por favor inicie sesión e intente nuevamente");
-            window.location = "../index.php";
-          </script>';
-    session_destroy();
-    die();
-}
-
+include("../php/rangos.php");
 
 try {
-    // Preparar y ejecutar la consulta
+    // Consulta para obtener la información del usuario
     $consultaUsuario = $conexion->prepare("SELECT * FROM usuarios WHERE nickname = :nickname");
     $consultaUsuario->bindParam(':nickname', $_SESSION['nickname']);
     $consultaUsuario->execute();
     $usuario = $consultaUsuario->fetch(PDO::FETCH_ASSOC);
 
-    // Comprobar si se obtuvo el nombre de usuario correctamente
+    // Comprobar si se obtuvo el usuario correctamente
     if (!$usuario) {
-
         throw new Exception("El usuario no fue encontrado en la base de datos");
     }
 
     $nombreUsuario = $usuario['nickname'];
     $puntaje = $usuario['puntaje'];
-    $nivel = $usuario['nivel'];
+
+    // Consulta para obtener la información del rango del usuario
+    $consultaRango = $conexion->prepare("SELECT * FROM rangos WHERE id = :nivel");
+    $consultaRango->bindParam(':nivel', $usuario['nivel']);
+    $consultaRango->execute();
+    $rango = $consultaRango->fetch(PDO::FETCH_ASSOC);
+
+    // Comprobar si se obtuvo el rango correctamente
+    if (!$rango) {
+        throw new Exception("El rango del usuario no fue encontrado en la base de datos");
+    }
+
+    $nombreRango = $rango['nombre'];
+    // Ajustar la ruta de la imagen del rango
+    $imagenRango = "../img/rangos/" . $rango['ruta_rango'];
+
 } catch (PDOException $e) {
     // Manejar errores de PDO
     echo "Error de PDO: " . $e->getMessage();
@@ -36,9 +38,6 @@ try {
     // Manejar otros tipos de errores
     echo "Error: " . $e->getMessage();
 }
-
-// Cerrar la conexión a la base de datos
-$conexion = null;
 ?>
 
 <!DOCTYPE html>
@@ -55,8 +54,9 @@ $conexion = null;
     <div class="sidebar">
         <div class="sidebar-header">
             <h2 class="game-title">Bienvenido a Valorant</h2>
-            <p> <?php echo $nombreUsuario; ?></p>
-        
+            <p><?php echo $nombreUsuario; ?></p>
+            <p><?php echo $nombreRango; ?></p>
+            <img src="<?php echo $imagenRango; ?>" alt="Rango">
         </div>
         <div class="sidebar-menu">
             <ul>
@@ -77,9 +77,5 @@ $conexion = null;
             <img src="../img/play.png" alt="Play">
         </button>
     </div>
-
 </body>
-
 </html>
-
-<a name="" id="" class="btn btn-primary" href="#" role="button">Button</a>
