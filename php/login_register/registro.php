@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recibe los datos del formulario
     $id = $_POST['id'];
 
-    $nombre = $_POST['nombre'];
+    $nombres = $_POST['nombres'];
     $correo = $_POST['correo'];
     $nickname = $_POST['nickname'];
     $password = $_POST['password'];
@@ -21,14 +21,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Escapa los valores para evitar inyección SQL
     $id = $conexion->real_escape_string($id);
 
-    $nombre = $conexion->real_escape_string($nombre);
+    $nombres = $conexion->real_escape_string($nombres);
     $correo = $conexion->real_escape_string($correo);
     $nickname = $conexion->real_escape_string($nickname);
     $password = $conexion->real_escape_string($password);
 
     // Prepara la consulta SQL para insertar los datos
-    $consulta = "INSERT INTO `usuarios` (`id`,`nombre`, `correo`, `nickname`, `password`, `vida`,  `nivel`, `puntaje`, `id_estado`) 
-                 VALUES ('$id','$nombre', '$correo', '$nickname', '$password', '150', '0', '0', '1')";
+    $consulta = "INSERT INTO `usuarios` (`id`,`nombres`, `correo`, `nickname`, `password`, `vida`,  `nivel`, `puntaje`, `id_estado`) 
+                 VALUES ('$id','$nombres', '$correo', '$nickname', '$password', '150', '0', '0', '1')";
 
     // Ejecuta la consulta
     if ($conexion->query($consulta) === TRUE) {

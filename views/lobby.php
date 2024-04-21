@@ -53,10 +53,10 @@ try {
 <body>
     <div class="sidebar">
         <div class="sidebar-header">
-            <h2 class="game-title">Bienvenido a Valorant</h2>
+            <h2 class="game-title">Bienvenido</h2>
             <p><?php echo $nombreUsuario; ?></p>
             <p><?php echo $nombreRango; ?></p>
-            <img src="<?php echo $imagenRango; ?>" alt="Rango">
+            <img src="<?php echo $imagenRango; ?>" alt="Rango" width="50px">
         </div>
         <div class="sidebar-menu">
             <ul>
