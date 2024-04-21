@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['disparar']) && isset($
     if ($result_arma_disparador->num_rows > 0) {
         $row_arma_disparador = $result_arma_disparador->fetch_assoc();
         $id_arma_disparador = $row_arma_disparador['id_arma'];
-        
+
         // Obtener los datos del arma (nombre, daños) desde la tabla armas
         $sql_datos_arma = "SELECT nombre, da_body, da_head FROM armas WHERE id = $id_arma_disparador";
         $result_datos_arma = $conexion->query($sql_datos_arma);
@@ -74,13 +74,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['disparar']) && isset($
 
                     // Verificar si la vida del jugador objetivo es menor o igual a 0
                     if ($vida_actual <= 0) {
-                        // Eliminar al jugador de la tabla sala
+                        $new_resumen_w = 'perdedor';
+                        $estados = "UPDATE sala SET resumen = '$new_resumen_w' WHERE nickname = '$jugador_objetivo'";
+                        $conexion->query($estados);
+                        
                         $sql_eliminar_jugador = "DELETE FROM sala WHERE nickname = '$jugador_objetivo'";
                         $conexion->query($sql_eliminar_jugador);
 
                         // Mostrar mensaje de eliminación y quién lo eliminó
                         echo "<script>alert('¡$jugador_objetivo ha sido eliminado por $nickname_disparador!');</script>";
-
                     }
                 }
             }
@@ -90,7 +92,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['disparar']) && isset($
             echo "<script>alert('¡Disparo exitoso con un daño de $danio puntos usando $nombre_arma en $mensaje_disparo!');
              window.location = 'salas1.php';
              </script>";
-
         } else {
             echo "<script>alert('Error: No se encontraron datos del arma del disparador');
             window.location = 'salas1.php';
@@ -114,4 +115,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['disparar']) && isset($
     header("Location: pagina_error.php");
     exit();
 }
-?>

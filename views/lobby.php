@@ -1,4 +1,6 @@
 <?php
+include("../db/PDO.php");
+
 session_start();
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['nickname'])) {
@@ -10,7 +12,6 @@ if (!isset($_SESSION['nickname'])) {
     die();
 }
 
-include("../db/PDO.php");
 
 try {
     // Preparar y ejecutar la consulta
@@ -64,6 +65,7 @@ $conexion = null;
                 echo "<li><a href='game/vida.php?id=" . $nombreUsuario . "'>Jugar</a></li>";
                 ?>
                 <li><a href="#">Mundos</a></li>
+                <li><a href="historial/index.php">Historial</a></li>
                 <li><a href="#">Armas</a></li>
                 <li><a href="#">Perfil</a></li>
             </ul>

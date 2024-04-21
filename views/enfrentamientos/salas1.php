@@ -8,7 +8,7 @@ if (!isset($_SESSION['nickname'])) {
             window.location = "../index.php";
           </script>';
   session_destroy();
-  die();
+  exit(); // Terminar la ejecución del script después de redireccionar
 }
 
 include("../../db/conexion.php");
@@ -34,15 +34,17 @@ if ($result_usuario_autenticado->num_rows > 0) {
   $avatar_usuario_autenticado = $row_usuario_autenticado["avatar"];
 
   // Calcular el porcentaje de vida del usuario autenticado
-  $vida_porcentaje_usuario_autenticado = ($vida_usuario_autenticado / $vida_maxima) * 100;
+  $vida_porcentaje_usuario_autenticado = ($vida_usuario_autenticado / $vida_maxima) * 150;
 } else {
-  // Si el usuario autenticado no se encuentra en la tabla sala, mostrar mensaje y redireccionar
+  
   echo '<script>
-            alert("Lo siento ha sido eliminado ");
-            window.location = "../lobby.php";
-          </script>';
-  die();
+          alert("Lo siento ha sido eliminado ");
+          window.location = "../lobby.php";
+        </script>';
+  
+  exit();
 }
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -102,11 +104,15 @@ if ($result_usuario_autenticado->num_rows > 0) {
     $total_jugadores = $row_numero_jugadores['total_jugadores'];
 
     if ($total_jugadores == 1) {
-      // Eliminar al único jugador de la sala
+  
+      $new_resumen_e = 'ganador';
+
+      $estados = "UPDATE sala SET resumen = '$new_resumen_e' WHERE nickname = '$usuario_autenticado'";
+      $conexion->query($estados);
+
       $sql_eliminar_jugador = "DELETE FROM sala";
       $conexion->query($sql_eliminar_jugador);
 
-      // Mostrar mensaje de ganador y redirigir al usuario al lobby
       echo '<div class="alert alert-success" role="alert">
                 ¡Felicidades! ¡Eres el ganador!
               </div>';

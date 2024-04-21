@@ -74,7 +74,11 @@
     ?>
 
     <a href="../enfrentamientos/inir.php">iniciar</a>
-
+    <script>
+    setTimeout(function() {
+      location.reload();
+    }, 3000);
+  </script>
     <!-- Agregar el script de Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
