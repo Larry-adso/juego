@@ -48,7 +48,7 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
         <div class="card">
           <div class="row no-gutters">
             <div class="col-md-6">
-              <img src="<?php echo substr($avatar['ruta'], 3); ?>" class="card-img-top" style="height: 350px; width:280px;">
+              <img src="<?php echo substr($avatar['ruta'], 3); ?>" class="card-img-top" style="height: 340px; width:250px;">
             </div>
             <div class="col-md-6">
               <div class="card-body">
