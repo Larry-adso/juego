@@ -11,6 +11,7 @@ body {
 header {
     text-align: center; /* Centrar el texto del encabezado */
     padding: 20px 0; /* Agregar espacio alrededor del encabezado */
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .container {
@@ -20,12 +21,14 @@ header {
 .table {
     background-color: rgba(255, 255, 255, 0.3); /* Color de fondo semitransparente para la tabla */
     font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .table tr:nth-child(even) td {
     background-color: rgba(255, 255, 255, 0.2); /* Cambia este color según tu preferencia */
     color: #000000;
     font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 /* Aplica un color de fondo a las celdas impares */
@@ -47,6 +50,7 @@ header {
     border-radius: 10px; /* Agrega esquinas redondeadas */
     color: white; /* Color de texto */
     font-size: 16px; /* Tamaño de fuente */
+    font-family: Georgia, 'Times New Roman', Times, serif;
     cursor: pointer; /* Cambia el cursor al pasar el mouse */
     animation: glowing 1.5s infinite alternate; /* Aplica la animación */
 }
