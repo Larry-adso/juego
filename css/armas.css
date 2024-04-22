@@ -12,15 +12,16 @@ body, html {
   
   header {
     background-color: #000000;
-    color: white;
+    color: rgb(254, 0, 0);
     padding: 10px;
     
   }
 
   .mi-title{
-    color: rgb(12, 19, 153);
+    color: rgb(0, 0, 0);
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: x-large;
+    
   }
 
   .mi-row{
@@ -29,9 +30,22 @@ body, html {
     margin-left: calc(-.0* var(--bs-gutter-x));
   }
 
+  .card {
+    transition: box-shadow 0.3s;
+    background-color: rgba(255, 228, 196, 0.686);
+    width: 90%;
+    height: 100%;
+    margin-left: 2cap;
+  }
+
+  .card:hover {
+    box-shadow: 0 0 20px 10px rgb(16, 27, 145);
+  }
+
 .imgs{
-    height: 200px; 
-    width:230px;
+    height: 180px; 
+    width:250px;
+    
 }
 
   h1 
@@ -64,7 +78,7 @@ body, html {
   
   .btns:hover {
     background: rgb(2,29,78);
-    background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+    background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 85, 232, 0.873) 60%);
     color: rgb(127, 127, 133);
   }
   
@@ -114,8 +128,8 @@ body, html {
   
   .shadow__btn:hover {
     box-shadow: 0 0 5px rgb(6, 67, 117),
-                0 0 25px rgb(0,140,255),
-                0 0 50px rgb(0,140,255),
+                0 0 25px rgba(31, 85, 232, 0.873),
+                0 0 50px rgba(31, 85, 232, 0.873),
                 0 0 100px rgb(0,140,255);
   }
 
