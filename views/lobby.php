@@ -55,8 +55,9 @@ try {
         <div class="sidebar-header">
             <h2 class="game-title">Bienvenido</h2>
             <p><?php echo $nombreUsuario; ?></p>
+            <img id="rangoImg" src="<?php echo $imagenRango; ?>" alt="Rango" width="40px">
             <p><?php echo $nombreRango; ?></p>
-            <img src="<?php echo $imagenRango; ?>" alt="Rango" width="50px">
+
         </div>
         <div class="sidebar-menu">
             <ul>

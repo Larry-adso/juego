@@ -1,42 +1,40 @@
 <?php
-    include '../../../db/conexion.php';
+include '../../../db/conexion.php';
 
 $consulta = $conexion->prepare("SELECT * FROM tp_armas ");
 $consulta->execute();
 $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $nombre = $_POST['nombre'];
-        $da_body = $_POST['da_body'];
-        $da_head = $_POST['da_head'];
-        $balas = $_POST['balas'];
-        $recamara = $_POST['recamara'];
-        $arma = $_POST['id_tip_arma'];
-        $ruta = $_POST['ruta'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id = $_POST['id'];
+    $nombre = $_POST['nombre'];
+    $da_body = $_POST['da_body'];
+    $da_head = $_POST['da_head'];
+    $balas = $_POST['balas'];
+    $recamara = $_POST['recamara'];
+    $arma = $_POST['id_tip_arma'];
 
-        $mysqli->query("UPDATE armas SET nombre='$nombre', da_body='$da_body', nombre='$da_head', balas='$balas', recamara='$recamara', id_tip_arma='$arma', ruta='$ruta' WHERE id=$id");
+    $conexion->query("UPDATE armas SET nombre='$nombre', da_body='$da_body', da_head='$da_head', balas='$balas', recamara='$recamara', id_tip_arma='$arma' WHERE id=$id");
 
-        $_SESSION['message'] = "Arma actualizado exitosamente";
-        $_SESSION['msg_type'] = "success";
+    $_SESSION['message'] = "Arma actualizado exitosamente";
+    $_SESSION['msg_type'] = "success";
 
-        header("location: index.php");
+    header("location: ../../admin/armas.php");
+}
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $result = $conexion->query("SELECT * FROM armas WHERE id=$id");
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $nombre = $row['nombre'];
+        $da_body = $row['da_body'];
+        $da_head = $row['da_head'];
+        $balas = $row['balas'];
+        $recamara = $row['recamara'];
+        $arma = $row['id_tip_arma'];
     }
-
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-        $result = $conexion->query("SELECT * FROM armas WHERE id=$id");
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $nombre = $row['nombre'];
-            $da_body = $row['da_body'];
-            $da_head = $row['da_head'];
-            $balas = $row['balas'];
-            $recamara = $row['recamara'];
-            $arma = $row['id_tip_arma'];
-            $ruta = $row['ruta'];
-            
-        }
-    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -72,20 +70,12 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
                 <label for="recamara">Recamara:</label>
                 <input type="text" class="form-control" id="recamara" name="recamara" value="<?php echo $recamara; ?>" required>
             </div>
-            <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $nombre; ?>" required>
-            </div>
            
             <div class="form-group">
-                <label for="ruta">Ruta:</label>
-                <input type="file" class="form-control" id="ruta" name="ruta" value="<?php echo $ruta; ?>" required>
-            </div>
-            <div class="form.group">
                 <label for="id_tip_arma" class="form-label">Tipo de arma</label>
-                 <select class="form-select form-select-lg" name="id_tip_arma" id="id_tip_arma" value="<?php echo $arma; ?>" required>>
-                    <?php foreach ($info as $arma) { ?>
-                     <option value="<?php echo $arma['id']; ?>"> <?php echo $arma['id'] . ' : ' . $arma['tipo_arma']; ?></option>
+                <select class="form-select form-select-lg" name="id_tip_arma" id="id_tip_arma" required>>
+                    <?php foreach ($info as $armaItem) { ?>
+                        <option value="<?php echo $armaItem['id']; ?>" <?php if ($armaItem['id'] == $arma) echo 'selected'; ?>><?php echo $armaItem['id'] . ' : ' . $armaItem['tipo_arma']; ?></option>
                     <?php } ?>
                 </select>
             </div>

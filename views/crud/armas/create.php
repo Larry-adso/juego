@@ -1,28 +1,10 @@
 <?php
-    include '../../../db/conexion.php';
+
+include '../../../db/conexion.php';
 
 $consulta = $conexion->prepare("SELECT * FROM tp_armas ");
 $consulta->execute();
 $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
-
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $nombre = $_POST['nombre'];
-        $da_body = $_POST['da_body'];
-        $da_head = $_POST['da_head'];
-        $balas = $_POST['balas'];
-        $recamara = $_POST['recamara'];
-        $arma = $_POST['id_tip_arma'];
-        $ruta = $_POST['ruta'];
-
-
-        $conexion->query("INSERT INTO armas (nombre, da_body, da_head, balas, recamara, id_tip_arma, ruta,) VALUES ('$nombre', '$da_body, '$da_head','$balas', '$recamara', '$id_tip_arma', '$ruta')");
-
-        $_SESSION['message'] = "Arma agregada exitosamente";
-        $_SESSION['msg_type'] = "success";
-
-        header("location: index.php");
-    }
 
 ?>
 
@@ -37,7 +19,7 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
 <body>
     <div class="container">
         <h2 class="mt-4 mb-4">Agregar Nueva Arma</h2>
-        <form action="" method="POST">
+        <form action="../../../php/admin/armas.php" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nombre">Nombre:</label>
                 <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -58,13 +40,17 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
                 <label for="recamara">Recamara:</label>
                 <input type="text" class="form-control" id="recamara" name="recamara" required>
             </div>
-            <div class="form.group">
+            <div class="form-group">
                 <label for="id_tip_arma" class="form-label">Tipo de arma</label>
-                 <select class="form-select form-select-lg" name="id_tip_arma" id="id_tip_arma">
+                <select class="form-select form-select-lg" name="id_tip_arma" id="id_tip_arma">
                     <?php foreach ($info as $arma) { ?>
-                     <option value="<?php echo $arma['id']; ?>"> <?php echo $arma['id'] . ' : ' . $arma['tipo_arma']; ?></option>
+                        <option value="<?php echo $arma['id']; ?>"> <?php echo $arma['id'] . ' : ' . $arma['tipo_arma']; ?></option>
                     <?php } ?>
                 </select>
+            </div>
+            <div class="form-group">
+                <label for="nivel">Nivel:</label>
+                <input type="text" class="form-control" id="nivel" name="nivel" required>
             </div>
             <div class="form-group">
                 <label for="ruta">Ruta:</label>
@@ -79,4 +65,3 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-

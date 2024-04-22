@@ -36,6 +36,7 @@
                     <th>Balas</th>
                     <th>Recamara</th>
                     <th>Tipo Arma</th>
+                    <th>Nivel</th>
                     <th>Ruta</th>
                     <th>Acciones</th>
                 </tr>
@@ -52,7 +53,9 @@
                         <td><?php echo $row['balas']; ?></td>
                         <td><?php echo $row['recamara']; ?></td>
                         <td><?php echo $row['id_tip_arma']; ?></td>
-                        <td><img src="<?php echo $row['ruta']; ?>" class="arma-img" alt="<?php echo $row['nombre']; ?>" width="120px"></td>
+                        <td><?php echo $row['nivel']; ?></td>
+
+                        <td><img src="../../img/armas/<?php echo $row['ruta']; ?>" class="arma-img" alt="<?php echo $row['nombre']; ?>" width="120px"></td>
                         <td>
                             <a href="../crud/armas/update.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-sm">Editar</a>
                             <a href="../crud/armas/delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">Eliminar</a>

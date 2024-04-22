@@ -125,3 +125,11 @@ body {
     color: #fbff00; /* Color del texto para los párrafos */
     font-size: x-large;
 }
+
+#rangoImg {
+  transition: transform 0.3s ease; /* Agrega transición suave */
+}
+
+#rangoImg:hover {
+  transform: scale(2.10); /* Aumenta el tamaño al pasar el cursor sobre la imagen */
+}

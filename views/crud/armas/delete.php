@@ -8,6 +8,6 @@
         $_SESSION['message'] = "Arma eliminada exitosamente";
         $_SESSION['msg_type'] = "danger";
 
-        header("location: index.php");
+        header("location: ../../admin/armas.php");
     }
 ?>
