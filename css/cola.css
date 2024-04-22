@@ -24,14 +24,14 @@ header {
 
 .table tr:nth-child(even) td {
     background-color: rgba(255, 255, 255, 0.2); /* Cambia este color según tu preferencia */
-    color: #ffffff;
+    color: #000000;
     font-size: 20px;
 }
 
 /* Aplica un color de fondo a las celdas impares */
 .table tr:nth-child(odd) td {
     background-color: rgb(255, 255, 255, 0.2); /* Cambia este color según tu preferencia */
-    color: #f2f2f2;
+    color: #000000;
     font-size: 20px; /* Tamaño de fuente deseado */
 }
 
@@ -39,8 +39,23 @@ header {
     display: flex;
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
-    width: 100px; /* Ancho deseado */
+    width: 120px; /* Ancho deseado */
     height: 50px; /* Alto deseado */
     margin: 20px auto; /* Centra el botón horizontalmente */
-    background-color: brown;
-  }
+    background-color: rgb(226, 11, 11);
+    border: none; /* Quita el borde */
+    border-radius: 10px; /* Agrega esquinas redondeadas */
+    color: white; /* Color de texto */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    animation: glowing 1.5s infinite alternate; /* Aplica la animación */
+}
+
+@keyframes glowing {
+    0% {
+        box-shadow: 0 0 10px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.5), 0 0 30px rgba(255,255,255,0.5); /* Valor inicial de la sombra */
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,1), 0 0 40px rgba(255,255,255,1); /* Valor final de la sombra */
+    }
+}
