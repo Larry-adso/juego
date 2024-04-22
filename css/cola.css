@@ -1,0 +1,63 @@
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-image: url(../img/cola.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    display: flex;
+}
+header {
+    background-color: transparent;
+    color: rgb(255, 0, 0);
+    padding: 8px;
+    font-family: 'Times New Roman', Times, serif;
+    padding-top: 30px;
+}
+ 
+ /* Estilos personalizados para la tabla */
+ .container {
+    margin-top: 300px;
+    align-content: center; /* Ajusta el margen superior según sea necesario */
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ff0000; /* Borde de las celdas */
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #ffffff; /* Cambia el color de fondo del encabezado */
+    color: rgb(0, 0, 0); /* Cambia el color del texto del encabezado */
+}
+tr {
+    border: 1px solid #ff0000; /* Borde de las filas */
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Cambia el color de fondo de las filas pares */
+}
+tr:nth-child(odd) {
+    background-color: #ffffff; /* Cambia el color de fondo de las filas impares */
+}
+.mi-btn {
+    background-color: #ff0000; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 50px 20px; /* Padding interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de apuntar */
+    text-decoration: none; /* Sin subrayado */
+    align-content: center;
+    height: 40px;
+    margin-right: 20%;
+    margin-top: 20%;
+}
+.mi-btn:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el ratón */
+}

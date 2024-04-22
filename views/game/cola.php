@@ -7,9 +7,14 @@
     <title>Ver Campos de la Tabla Sala</title>
     <!-- Agregar los enlaces a Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/cola.css">
 </head>
 
+
 <body>
+    <header>
+        <h1>Jugadores en cola</h1>
+    </header>
 
     <?php
     include("../../db/conexion.php");
@@ -73,7 +78,7 @@
     $conexion->close();
     ?>
 
-    <a href="../enfrentamientos/inir.php">iniciar</a>
+    <a href="../enfrentamientos/inir.php" class="btn btn-primary mi-btn">Iniciar</a>
     <script>
     setTimeout(function() {
       location.reload();
