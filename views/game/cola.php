@@ -78,7 +78,7 @@
     $conexion->close();
     ?>
 
-    <a href="../enfrentamientos/inir.php" class="btn btn-primary mi-btn">Iniciar</a>
+    <a href="../enfrentamientos/inir.php" class="btn btn-primary mi-btn">Iniciar Batalla</a>
     <script>
     setTimeout(function() {
       location.reload();
