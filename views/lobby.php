@@ -50,15 +50,18 @@ try {
     <link rel="stylesheet" href="../css/lobby.css">
 </head>
 
-<body>
-    <div class="sidebar">
-        <div class="sidebar-header">
+<body> 
+<div class="sidebar-info">
             <h2 class="game-title">Bienvenido</h2>
             <p><?php echo $nombreUsuario; ?></p>
+            <h2 class="points">puntos:</h2>
+            <p> <?php echo $puntaje; ?></p>
             <img id="rangoImg" src="<?php echo $imagenRango; ?>" alt="Rango" width="40px">
             <p><?php echo $nombreRango; ?></p>
 
+
         </div>
+    <div class="sidebar">
         <div class="sidebar-menu">
             <ul>
                 <?php

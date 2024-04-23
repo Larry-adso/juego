@@ -9,17 +9,19 @@ body {
     background-repeat: no-repeat;
     color: #fff;
     display: flex;
+   
 }
 
 
 .sidebar {
     width: 250px;
     background-color: transparent; /* Hacemos el menú transparente */
-    padding-top: 20px;
+    padding-top: 100px;
     height: 100vh;
+    
 }
 
-.sidebar-header {
+.sidebar-info {
     text-align: center;
   }
   
@@ -29,6 +31,10 @@ body {
     text-transform: uppercase;
     position: relative;
     overflow: hidden;
+  }
+
+  .points{
+    color: #fbff16;
   }
   
   .game-title::before {
@@ -106,22 +112,24 @@ body {
 #play-button:hover {
     background-color: #e33030;
 }
-.sidebar-header {
-     /* Establece un borde sólido de 2px de ancho con color gris claro */
-    border-radius: 10px; /* Añade esquinas redondeadas */
-    padding: 10px; /* Añade espacio interno para el contenido */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Añade una sombra suave */
+/* Establece un borde sólido de 2px de ancho con color gris claro */
+ .sidebar-info {
+    position: absolute; /* Establece el posicionamiento absoluto */
+    right: 0; /* Mueve todo el contenido hacia la izquierda */
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: transparent;
-    text-align: center; /* Centra el contenido horizontalmente */
-    
-}
+    text-align: center;
+  }
+  
 
 
-.sidebar-header h3 {
+.sidebar-info h3 {
     color: #333; /* Color del texto para los encabezados h3 */
 }
 
-.sidebar-header p {
+.sidebar-info p {
     color: #fbff00; /* Color del texto para los párrafos */
     font-size: x-large;
 }
