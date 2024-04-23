@@ -17,7 +17,8 @@ include("../../db/conexion.php");
 $usuario_autenticado = $_SESSION['nickname'];
 
 // Obtener los datos del usuario autenticado
-$sql_usuario_autenticado = "SELECT u.nickname, u.vida, a.ruta as avatar FROM usuarios u
+$sql_usuario_autenticado = "SELECT u.nickname, u.vida, a.ruta as avatar, s.id_arma 
+                            FROM usuarios u
                             INNER JOIN sala s ON u.nickname = s.nickname
                             INNER JOIN avatar a ON s.id_avatar = a.id
                             WHERE u.nickname = '$usuario_autenticado'";
@@ -32,16 +33,18 @@ if ($result_usuario_autenticado->num_rows > 0) {
   $nombre_usuario_autenticado = $row_usuario_autenticado["nickname"];
   $vida_usuario_autenticado = $row_usuario_autenticado["vida"];
   $avatar_usuario_autenticado = $row_usuario_autenticado["avatar"];
+  $id_arma_seleccionada = $row_usuario_autenticado["id_arma"];
+
 
   // Calcular el porcentaje de vida del usuario autenticado
   $vida_porcentaje_usuario_autenticado = ($vida_usuario_autenticado / $vida_maxima) * 150;
 } else {
-  
+
   echo '<script>
           alert("Lo siento ha sido eliminado ");
           window.location = "../lobby.php";
         </script>';
-  
+
   exit();
 }
 
@@ -91,6 +94,53 @@ if ($result_usuario_autenticado->num_rows > 0) {
           </div>
           <p>Vida: <?php echo $vida_usuario_autenticado; ?></p>
         </div>
+
+      </div>
+      <?php
+      $consulta = $conexion->prepare("SELECT armas.*, usuarios.nivel as usuario_nivel
+      FROM armas 
+      JOIN usuarios ON armas.nivel <= usuarios.nivel
+      WHERE usuarios.nickname = ?");
+      $consulta->bind_param("s", $_SESSION['nickname']);
+      $consulta->execute();
+      $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
+
+
+      ?>
+      <div class="row row-cols-1 row-cols-md-4 g-4 mi-row">
+        <?php foreach ($info as $armas) { ?>
+          <?php // Verificar si el arma pertenece al usuario autenticado y omitirla si es así 
+          ?>
+          <?php if ($armas['id'] != $id_arma_seleccionada) { ?>
+            <div class="col-md-3">
+              <div class="card">
+                <div class="row no-gutters">
+                  <h3 class="titulo_mapas">Nivel de arma : <?php echo $armas['nivel']; ?></h3>
+
+                  <div class="col-md-6">
+                    <?php echo "<img style='height: 80px;   'src='../../img/armas/" . $armas["ruta"] . "' alt='Imagen del arma'>"; ?>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card-body">
+                      <h5 class="card-title mi-title">Arma : <?php echo  $armas['nombre']; ?></h5>
+                      <h5 class="card-title mi-title">Cuerpo : <?php echo  $armas['da_body']; ?></h5>
+                      <h5 class="card-title mi-title">Cabeza : <?php echo  $armas['da_head']; ?> </h5>
+                      <h5 class="card-title mi-title">Balas : <?php echo  $armas['balas']; ?> </h5>
+                      <h5 class="card-title mi-title">Balas Recamara : <?php echo  $armas['recamara']; ?> </h5>
+                      <br>
+                      <form action="../game/procesar_arma.php" method="get">
+                        <input type="hidden" name="id_arma" value="<?php echo $armas['id']; ?>">
+                        <input type="hidden" name="nickname" value="<?php echo $_SESSION['nickname']; ?>">
+                        <button type="submit" class="shadow__btn">Seleccionar</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <?php } ?>
+        <?php } ?>
+
       </div>
     </div>
   </header>
@@ -104,7 +154,7 @@ if ($result_usuario_autenticado->num_rows > 0) {
     $total_jugadores = $row_numero_jugadores['total_jugadores'];
 
     if ($total_jugadores == 1) {
-  
+
       $new_resumen_e = 'ganador';
 
       $estados = "UPDATE sala SET resumen = '$new_resumen_e' WHERE nickname = '$usuario_autenticado'";
@@ -121,7 +171,7 @@ if ($result_usuario_autenticado->num_rows > 0) {
                   window.location.href = "../lobby.php";
                 }, 3000);
               </script>';
-      exit; // Terminar la ejecución del script
+      exit;
     }
   }
   ?>
@@ -161,7 +211,7 @@ if ($result_usuario_autenticado->num_rows > 0) {
           // Mostrar el avatar, nombre del jugador y su vida con una tarjeta y barra de progreso
           if ($nombre_jugador != $usuario_autenticado) {
             // Solo mostrar el botón de ataque si el jugador objetivo no es el mismo que el usuario autenticado
-            echo "<div class='col-md-4'>
+            echo "<div class='col-md-3'>
                             <div class='card'>
                               <div class='card-body'>
                                 <img src='$avatar_jugador' class='avatar-img' alt='Avatar'>
@@ -196,7 +246,7 @@ if ($result_usuario_autenticado->num_rows > 0) {
   <script>
     setTimeout(function() {
       location.reload();
-    }, 3000);
+    }, 1000);
   </script>
 </body>
 

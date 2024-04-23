@@ -32,7 +32,7 @@ if(isset($_GET['id_arma'])) {
     
     echo '<script>
     alert("se guardo correctamente");
-    window.location = "cola.php";
+    window.location = "../enfrentamientos/inir.php";
   </script>';
     exit();
 } else {

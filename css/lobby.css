@@ -9,25 +9,20 @@ body {
   background-repeat: no-repeat;
   color: #fff;
   display: flex;
+ 
 }
+
 
 .sidebar {
   width: 250px;
-  background-color: transparent; /* Making the menu transparent */
+  background-color: transparent; /* Hacemos el menú transparente */
   padding-top: 100px;
   height: 100vh;
+  
 }
 
 .sidebar-info {
   text-align: center;
-  position: absolute;
-  right: 20px; /* Adjust the distance from the right edge */
-  top: 20px; /* Adjust the distance from the top */
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  color: #fff;
 }
 
 .game-title {
@@ -38,7 +33,7 @@ body {
   overflow: hidden;
 }
 
-.points {
+.points{
   color: #fbff16;
 }
 
@@ -49,21 +44,22 @@ body {
   left: -100%;
   width: 200%;
   height: 100%;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  background: linear-gradient(to right, rgba(255,255,255,0), rgba(255, 255, 255, 0.7), rgba(255,255,255,0));
   animation: slide 2s linear infinite;
 }
 
 @keyframes slide {
   0% {
-      left: -100%;
+    left: -100%;
   }
   50% {
-      left: 100%;
+    left: 100%;
   }
   100% {
-      left: 100%;
+    left: 100%;
   }
 }
+
 
 .sidebar-menu ul {
   list-style: none;
@@ -81,11 +77,11 @@ body {
   color: #ffffff;
   text-decoration: none;
   font-size: 40px;
-  transition: font-size 0.3s ease; /* Add transition for font-size change */
+  transition: font-size 0.3s ease; /* Agregamos una transición para el cambio de tamaño del texto */
 }
 
 .sidebar-menu a:hover {
-  font-size: 60px; /* Enlarge text on hover */
+  font-size: 60px; /* Agrandamos el texto al pasar el cursor */
   color: #ff0000;
 }
 
@@ -106,8 +102,10 @@ body {
   height: 150px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  position: relative; /* Set relative positioning */
-  left: -110px; /* Adjust position to the left */
+  position: relative; /* Establece el posicionamiento relativo */
+  left: -110px; /* Ajusta la posición hacia la izquierda */
+
+  
 }
 
 #play-button img {
@@ -118,11 +116,10 @@ body {
 #play-button:hover {
   background-color: #e33030;
 }
-
-/* Add a solid border with a light gray color */
+/* Establece un borde sólido de 2px de ancho con color gris claro */
 .sidebar-info {
-  position: absolute; /* Set absolute positioning */
-  right: 0; /* Move all content to the left */
+  position: absolute; /* Establece el posicionamiento absoluto */
+  right: 0; /* Mueve todo el contenido hacia la izquierda */
   border-radius: 10px;
   padding: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -130,19 +127,21 @@ body {
   text-align: center;
 }
 
+
+
 .sidebar-info h3 {
-  color: #333; /* Text color for h3 headings */
+  color: #333; /* Color del texto para los encabezados h3 */
 }
 
 .sidebar-info p {
-  color: #4400ff; /* Text color for paragraphs */
+  color: #fbff00; /* Color del texto para los párrafos */
   font-size: x-large;
 }
 
 #rangoImg {
-  transition: transform 0.3s ease; /* Add smooth transition */
+transition: transform 0.3s ease; /* Agrega transición suave */
 }
 
 #rangoImg:hover {
-  transform: scale(2.10); /* Increase size on hover */
+transform: scale(2.10); /* Aumenta el tamaño al pasar el cursor sobre la imagen */
 }
