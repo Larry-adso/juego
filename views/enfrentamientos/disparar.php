@@ -14,9 +14,9 @@ if (!isset($_SESSION['nickname'])) {
 // Obtener el nickname del jugador que inició sesión
 $nickname_disparador = $_SESSION['nickname'];
 
-// Verificar si se recibió una solicitud POST con el nombre del jugador objetivo
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['disparar']) && isset($_POST['jugador_objetivo'])) {
-    $jugador_objetivo = $_POST['jugador_objetivo'];
+// Verificar si se recibió una solicitud GET con el nombre del jugador objetivo
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['disparar']) && isset($_GET['jugador_objetivo'])) {
+    $jugador_objetivo = $_GET['jugador_objetivo'];
 
     // Conexión a la base de datos
     include("../../db/conexion.php");
@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['disparar']) && isset($
                         $new_resumen_w = 'perdedor';
                         $estados = "UPDATE sala SET resumen = '$new_resumen_w' WHERE nickname = '$jugador_objetivo'";
                         $conexion->query($estados);
-                        
+
                         $sql_eliminar_jugador = "DELETE FROM sala WHERE nickname = '$jugador_objetivo'";
                         $conexion->query($sql_eliminar_jugador);
 
@@ -89,13 +89,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['disparar']) && isset($
 
             // Mensaje de disparo exitoso
             $mensaje_disparo = ($parte_cuerpo === 1) ? "cabeza" : "cuerpo";
-            echo "<script>alert('¡Disparo exitoso con un daño de $danio puntos usando $nombre_arma en $mensaje_disparo!');
-             window.location = 'salas1.php';
-             </script>";
+
+            // Obtener los nicknames de los jugadores en la sala
+            $sql_nicknames = "SELECT nickname FROM sala";
+            $result_nicknames = $conexion->query($sql_nicknames);
+            $nicknames = array();
+
+            if ($result_nicknames->num_rows > 0) {
+                while ($row = $result_nicknames->fetch_assoc()) {
+                    $nicknames[] = $row['nickname'];
+                }
+            }
+
+            // Redirigir a salas1.php con los nicknames como parámetros GET
+            $jugadores = isset($_GET['jugadores']) ? $_GET['jugadores'] : '';
+
+            // Redirigir a sala1.php
+            echo "<script>
+            alert('¡Disparo exitoso con un daño de $danio puntos usando $nombre_arma en $mensaje_disparo!');
+
+                    window.location = '../enfrentamientos/salas1.php?jugadores=" . implode(',', $jugadores) . "';
+                  </script>";
+            exit();
         } else {
-            echo "<script>alert('Error: No se encontraron datos del arma del disparador');
+            echo "<script>
+            alert('Error: No se encontraron jugadores en la sala');
             window.location = 'salas1.php';
-            </script>";
+          </script>";
         }
     } else {
         echo "<script>alert('Error: No se encontró el ID del arma del disparador');
@@ -110,7 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['disparar']) && isset($
     // header("Location: pagina_anterior.php");
     exit();
 } else {
-    // Si no se recibió una solicitud POST válida, redirigir a una página de error o mostrar un mensaje
+    // Si no se recibió una solicitud GET válida, redirigir a una página de error o mostrar un mensaje
     echo "<script>alert('Error: Acceso no autorizado');</script>";
     header("Location: pagina_error.php");
     exit();
