@@ -102,6 +102,10 @@ body {
     height: 150px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    position: relative; /* Establece el posicionamiento relativo */
+    left: -110px; /* Ajusta la posición hacia la izquierda */
+
+    
 }
 
 #play-button img {
