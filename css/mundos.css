@@ -144,4 +144,13 @@ main {
   padding: 20px;
 }
 
-
+.titulo_mapas {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  color: #333; /* Change color as desired */
+  text-align: center; /* Center-align the text */
+  padding: 10px; /* Add padding for spacing */
+  background-color: #898ae9; /* Background color */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}

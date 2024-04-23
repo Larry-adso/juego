@@ -15,6 +15,8 @@ try {
 
     $nombreUsuario = $usuario['nickname'];
     $puntaje = $usuario['puntaje'];
+    $nivel = $usuario['nivel'];
+
 
     // Consulta para obtener la información del rango del usuario
     $consultaRango = $conexion->prepare("SELECT * FROM rangos WHERE id = :nivel");
@@ -28,9 +30,9 @@ try {
     }
 
     $nombreRango = $rango['nombre'];
+
     // Ajustar la ruta de la imagen del rango
     $imagenRango = "../img/rangos/" . $rango['ruta_rango'];
-
 } catch (PDOException $e) {
     // Manejar errores de PDO
     echo "Error de PDO: " . $e->getMessage();
@@ -50,17 +52,15 @@ try {
     <link rel="stylesheet" href="../css/lobby.css">
 </head>
 
-<body> 
-<div class="sidebar-info">
-            <h2 class="game-title">Bienvenido</h2>
-            <p><?php echo $nombreUsuario; ?></p>
-            <h2 class="points">puntos:</h2>
-            <p> <?php echo $puntaje; ?></p>
-            <img id="rangoImg" src="<?php echo $imagenRango; ?>" alt="Rango" width="40px">
-            <p><?php echo $nombreRango; ?></p>
-
-
-        </div>
+<body>
+    <div class="sidebar-info">
+        <h2 class="game-title">Bienvenido</h2>
+        <p><?php echo $nombreUsuario; ?></p>
+        <h2 class="points">puntos: <?php echo $puntaje; ?></h2>
+        <h2 class="points">Nivel: <?php echo $nivel; ?> </h2>
+        <img id="rangoImg" src="<?php echo $imagenRango; ?>" alt="Rango" width="40px">
+        <p><?php echo $nombreRango; ?></p>
+    </div>
     <div class="sidebar">
         <div class="sidebar-menu">
             <ul>
@@ -82,4 +82,5 @@ try {
         </button>
     </div>
 </body>
+
 </html>

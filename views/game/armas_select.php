@@ -47,6 +47,8 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
             <div class="col">
                 <div class="card">
                     <div class="row no-gutters">
+                    <h3 class="titulo_mapas" >Nivel de arma : <?php echo $armas['nivel']; ?></h3>
+
                         <div class="col-md-6">
                             <?php
                             echo "<img class='imgs' src='../../img/armas/" . $armas["ruta"] . "' alt='Imagen del arma'>";

@@ -1,147 +1,148 @@
 body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    background-image: url(../img/lobby2.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #fff;
-    display: flex;
-   
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-image: url(../img/lobby2.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  display: flex;
 }
 
-
 .sidebar {
-    width: 250px;
-    background-color: transparent; /* Hacemos el menú transparente */
-    padding-top: 100px;
-    height: 100vh;
-    
+  width: 250px;
+  background-color: transparent; /* Making the menu transparent */
+  padding-top: 100px;
+  height: 100vh;
 }
 
 .sidebar-info {
-    text-align: center;
-  }
-  
-  .game-title {
-    font-size: 30px;
-    color: #fbff16;
-    text-transform: uppercase;
-    position: relative;
-    overflow: hidden;
-  }
+  text-align: center;
+  position: absolute;
+  right: 20px; /* Adjust the distance from the right edge */
+  top: 20px; /* Adjust the distance from the top */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: #fff;
+}
 
-  .points{
-    color: #fbff16;
-  }
-  
-  .game-title::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 200%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(255,255,255,0), rgba(255, 255, 255, 0.7), rgba(255,255,255,0));
-    animation: slide 2s linear infinite;
-  }
-  
-  @keyframes slide {
-    0% {
+.game-title {
+  font-size: 30px;
+  color: #fbff16;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.points {
+  color: #fbff16;
+}
+
+.game-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  animation: slide 2s linear infinite;
+}
+
+@keyframes slide {
+  0% {
       left: -100%;
-    }
-    50% {
-      left: 100%;
-    }
-    100% {
-      left: 100%;
-    }
   }
-  
+  50% {
+      left: 100%;
+  }
+  100% {
+      left: 100%;
+  }
+}
 
 .sidebar-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .sidebar-menu li {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .sidebar-menu a {
-    display: block;
-    padding: 10px 20px;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 40px;
-    transition: font-size 0.3s ease; /* Agregamos una transición para el cambio de tamaño del texto */
+  display: block;
+  padding: 10px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 40px;
+  transition: font-size 0.3s ease; /* Add transition for font-size change */
 }
 
 .sidebar-menu a:hover {
-    font-size: 60px; /* Agrandamos el texto al pasar el cursor */
-    color: #ff0000;
+  font-size: 60px; /* Enlarge text on hover */
+  color: #ff0000;
 }
 
 .main-content {
-    flex: 1;
-    padding: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #play-button {
-    background-color: #fbff00;
-    border: solid;
-    border-color: #000000;
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    position: relative; /* Establece el posicionamiento relativo */
-    left: -110px; /* Ajusta la posición hacia la izquierda */
-
-    
+  background-color: #fbff00;
+  border: solid;
+  border-color: #000000;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative; /* Set relative positioning */
+  left: -110px; /* Adjust position to the left */
 }
 
 #play-button img {
-    width: 80px;
-    height: 80px;
+  width: 80px;
+  height: 80px;
 }
 
 #play-button:hover {
-    background-color: #e33030;
+  background-color: #e33030;
 }
-/* Establece un borde sólido de 2px de ancho con color gris claro */
- .sidebar-info {
-    position: absolute; /* Establece el posicionamiento absoluto */
-    right: 0; /* Mueve todo el contenido hacia la izquierda */
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: transparent;
-    text-align: center;
-  }
-  
 
+/* Add a solid border with a light gray color */
+.sidebar-info {
+  position: absolute; /* Set absolute positioning */
+  right: 0; /* Move all content to the left */
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  text-align: center;
+}
 
 .sidebar-info h3 {
-    color: #333; /* Color del texto para los encabezados h3 */
+  color: #333; /* Text color for h3 headings */
 }
 
 .sidebar-info p {
-    color: #fbff00; /* Color del texto para los párrafos */
-    font-size: x-large;
+  color: #4400ff; /* Text color for paragraphs */
+  font-size: x-large;
 }
 
 #rangoImg {
-  transition: transform 0.3s ease; /* Agrega transición suave */
+  transition: transform 0.3s ease; /* Add smooth transition */
 }
 
 #rangoImg:hover {
-  transform: scale(2.10); /* Aumenta el tamaño al pasar el cursor sobre la imagen */
+  transform: scale(2.10); /* Increase size on hover */
 }

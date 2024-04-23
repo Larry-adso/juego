@@ -59,6 +59,9 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
         foreach ($info as $mapas) {
           $class = ($count == 0) ? 'active' : '';
         ?>
+
+        <h3 class="titulo_mapas" >Nivel de mundo : <?php echo $mapas['nivel_m']; ?></h3>
+
           <div class="carousel-item <?php echo $class; ?>">
             <img src="<?php echo substr($mapas['ruta'], 3); ?>" class="d-block w-100"  alt="">
             <div class="carousel-caption d-none d-md-block">
@@ -67,7 +70,7 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
 
               <form action="game/procesar_mapa.php" method="get">
                 <input type="hidden" name="id_mapa" value="<?php echo $mapas['id']; ?>">
-                <input type="submit" name="" class="btn btn-success" value="Elegir mapa">
+                <input type="submit" name="" class="btn btn-success" value="entrar al mundo">
               </form>
             </div>
           </div>
