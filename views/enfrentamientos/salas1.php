@@ -55,29 +55,8 @@ if ($result_usuario_autenticado->num_rows > 0) {
     <title>Enfrentamiento</title>
     <!-- Enlaces a Bootstrap y estilos CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* Estilos personalizados */
-        .card {
-            margin-bottom: 20px;
-        }
+    <link rel="stylesheet" href="../../css/enfrentamiento.css">
 
-        .progress {
-            height: 20px;
-            margin-bottom: 10px;
-        }
-
-        .progress-bar {
-            background-color: #4CAF50;
-            /* Color de fondo de la barra de progreso */
-        }
-
-        .avatar-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-    </style>
 </head>
 
 <body>
@@ -108,11 +87,11 @@ if ($result_usuario_autenticado->num_rows > 0) {
                 <?php foreach ($info_armas as $arma) { ?>
                     <?php if ($arma['id'] != $id_arma_seleccionada) { ?>
                         <div class="col-md-3">
-                            <div class="card">
+                            <div class="card-arm">
                                 <div class="row no-gutters">
                                     <h3 class="titulo_mapas">Nivel de arma : <?php echo $arma['nivel']; ?></h3>
-                                    <div class="col-md-6">
-                                        <?php echo "<img style='height: 80px;   'src='../../img/armas/" . $arma["ruta"] . "' alt='Imagen del arma'>"; ?>
+                                    <div class="col-md-6 arm-img">
+                                        <?php echo "<img style='height: 80px; 'src='../../img/armas/" . $arma["ruta"] . "' alt='Imagen del arma'>"; ?>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="card-body">
@@ -182,8 +161,10 @@ if ($result_usuario_autenticado->num_rows > 0) {
 
 
     <main class="container">
-        <h1>Enfrentamiento</h1>
-        <p>Los jugadores en enfrentamiento son:</p>
+        <h1 class="enfrent">Enfrentamiento</h1>
+        <p class="jugadores">Los jugadores en enfrentamiento son:</p>
+        <div class="row justify-content-center">
+        
         <?php
         // Verificar si $jugadores está definido y no es nulo
         if (isset($_GET['jugadores']) && $_GET['jugadores'] !== '') {
@@ -219,14 +200,14 @@ if ($result_usuario_autenticado->num_rows > 0) {
                     if ($nombre_jugador != $usuario_autenticado) {
                         // Solo mostrar el botón de ataque si el jugador objetivo no es el mismo que el usuario autenticado
                         echo "<div class='col-md-3'>
-                            <div class='card'>
-                              <div class='card-body'>
+                            <div class='card mi-card'>
+                              <div class='card-body mi-card-body'>
                                 <img src='$avatar_jugador' class='avatar-img' alt='Avatar'>
-                                <h5 class='card-title'>$nombre_jugador</h5>
+                                <h5 class='card-title jugador-title'>$nombre_jugador</h5>
                                 <div class='progress'>
                                   <div class='progress-bar' role='progressbar' style='width: $vida_porcentaje%;' aria-valuenow='$vida_porcentaje' aria-valuemin='0' aria-valuemax='100'></div>
                                 </div>
-                                <p class='card-text'>Vida: $vida_jugador</p>
+                                <p class='card-text card-vida'>Vida: $vida_jugador</p>
                                 <form action='disparar.php' method='get'>
                                   <input type='hidden' name='jugador_objetivo' value='$nombre_jugador'>";
                         // Agregar un campo oculto para cada nickname
@@ -250,7 +231,7 @@ if ($result_usuario_autenticado->num_rows > 0) {
             echo "<div class='col-md-12'><p>No se encontraron jugadores.</p></div>";
         }
         ?>
-        <!-- Aquí puedes incluir más contenido si es necesario -->
+      </div>   <!-- Aquí puedes incluir más contenido si es necesario -->
     </main>
     <footer>
         <!-- Aquí va tu pie de página si es necesario -->

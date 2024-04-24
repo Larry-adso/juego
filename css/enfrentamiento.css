@@ -1,0 +1,99 @@
+body {
+    background-image: url('../img/lotbata.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* Estilo para la card de jugador */
+.mi-card {
+    background-color: transparent; /* Hace la card transparente */
+    margin-bottom: 20px;
+    padding: 10px;
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.mi-card:hover {
+    background-color: rgb(246, 116, 116, 0.3); /* Cambia a opaco al pasar el mouse */
+}
+
+/* Ajuste para mostrar tres jugadores por fila */
+@media (min-width: 768px) {
+    .battle-container .mi-card {
+        flex: 0 0 calc(33.33% - 20px); /* Tamaño para tres jugadores por fila */
+    }
+}
+
+.titulo_mapas{
+    color: rgb(0, 0, 0);
+    font-size: large;
+}
+
+.mi-title{
+    color: rgb(0, 0, 0);
+    font-size: small;
+}
+
+.arm-img {
+    display: flex; /* Usamos flexbox para alinear elementos */
+    align-items: center; /* Centramos verticalmente la imagen */
+}
+
+.arm-img img {
+    height: 100px !important; /* Altura de la imagen */
+    width: 180px; /* Anchura automática para mantener la proporción */
+    margin-right: 10px; /* Margen a la derecha para separar la imagen del contenido */
+}
+
+.card-arm{
+    background-color: rgba(203, 168, 116, 0.6);
+}
+
+.shadow__btn{
+    background-color: rgb(85, 65, 65);
+    color: white;
+}
+
+.enfrent{
+    color: white;
+}
+
+.jugadores{
+    color: white;
+}
+
+.jugador-title{
+    color: white;
+}
+
+.card-vida{
+    color: white;
+}
+.progress {
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    background-color: #a61e1e;
+    /* Color de fondo de la barra de progreso */
+}
+
+.avatar-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.btn-primary{
+    background-color: rgb(85, 65, 65);
+    color: #fff;
+    border-color: #000000;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #9d2121;
+    border-color: #000000;
+}

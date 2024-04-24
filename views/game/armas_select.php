@@ -37,7 +37,7 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
 <body>
     <header>
         <div class="top-container">
-            <h1>Seleccione su arma</h1>
+            <h1>Armas disponibles</h1>
         </div>
         <button class="btns">Atras</button>
     </header>

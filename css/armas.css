@@ -2,7 +2,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Times New Roman', Times, serif;
-    background-image: url(../img/fontmundo.jpg);
+    background-image: url(../img/fontarms.jpg);
   }
 
   .top-container{
@@ -11,9 +11,11 @@ body, html {
 
   
   header {
-    background-color: #000000;
-    color: rgb(254, 0, 0);
-    padding: 10px;
+    background-color: transparent;
+    color: rgb(255, 0, 0);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: xx-large;
+    padding: 40px;
     
   }
 
@@ -28,18 +30,19 @@ body, html {
     margin-top: calc(-0* var(--bs-gutter-y));
     margin-right: calc(-.0* var(--bs-gutter-x));
     margin-left: calc(-.0* var(--bs-gutter-x));
+    justify-content: center;
   }
 
   .card {
     transition: box-shadow 0.3s;
-    background-color: rgba(255, 228, 196, 0.686);
+    background-color: rgba(218, 218, 218, 0.5);
     width: 90%;
     height: 100%;
     margin-left: 2cap;
   }
 
   .card:hover {
-    box-shadow: 0 0 20px 10px rgb(16, 27, 145);
+    box-shadow: 0 0 20px 10px rgb(27, 33, 140);
   }
 
 .imgs{
