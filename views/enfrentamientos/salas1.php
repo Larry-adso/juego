@@ -72,6 +72,7 @@ if ($result_usuario_autenticado->num_rows > 0) {
                     </div>
                     <p>Vida: <?php echo $vida_usuario_autenticado; ?></p>
                 </div>
+                <h1 class="inv-arm">Inventario Armas</h1>
 
             </div>
             <?php

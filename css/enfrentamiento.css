@@ -27,11 +27,13 @@ body {
 .titulo_mapas{
     color: rgb(0, 0, 0);
     font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .mi-title{
     color: rgb(0, 0, 0);
-    font-size: small;
+    font-size: 13px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .arm-img {
@@ -47,27 +49,41 @@ body {
 
 .card-arm{
     background-color: rgba(203, 168, 116, 0.6);
+    
 }
 
 .shadow__btn{
     background-color: rgb(85, 65, 65);
     color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .enfrent{
     color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .jugadores{
     color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .jugador-title{
     color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.inv-arm{
+    color: rgb(255, 255, 255);
+    background-color: #704f4f;
+    font-size: 30px;
+    align-items: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .card-vida{
     color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .progress {
     height: 20px;
@@ -90,6 +106,7 @@ body {
     background-color: rgb(85, 65, 65);
     color: #fff;
     border-color: #000000;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .btn-primary:hover {
