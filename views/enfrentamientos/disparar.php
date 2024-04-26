@@ -112,8 +112,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['disparar']) && isset($_G
             exit();
         } else {
             echo "<script>
-            alert('Error: No se encontraron jugadores en la sala');
-            window.location = '../enfrentamientos/salas1.php?jugadores=" . implode(',', $jugadores) . "';
+            alert('Error: Para poder realizar un disparo debe primero seleccionar un arma');
+            window.location = '../game/armas_select.php';
                </script>";
         }
     } else {

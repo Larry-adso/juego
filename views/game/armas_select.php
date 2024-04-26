@@ -65,7 +65,7 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
                                 <form action="procesar_arma.php" method="get">
                                     <input type="hidden" name="id_arma" value="<?php echo $armas['id']; ?>">
                                     <input type="hidden" name="nickname" value="<?php echo $_SESSION['nickname']; ?>">
-                                    <button type="submit" class="shadow__btn">esto se borra</button>
+                                    <button type="submit" class="shadow__btn">Seleccionar</button>
                                 </form>
 
                             </div>
@@ -76,7 +76,6 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
 
 
         <?php } ?>
-        <a name="" id="" class="btn btn-primary" href="../enfrentamientos/inir.php" role="button">Jugar</a>
 
     </div>
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/index1.css">
 </head>
+
 <body>
-   
     </form>
     <form method="post" action="php/login_register/login.php" class="login-form">
         <h1 class="login-title">Login</h1>
@@ -24,7 +25,7 @@
 
         <div class="remember-forgot-box">
             <label for="remember">
-                
+
                 <input type="checkbox" id="remember">
                 Recordar
             </label>
@@ -34,10 +35,11 @@
         <button type="submit" class="login-btn">Login</button>
 
         <p class="register">
-        No tienes una cuenta? 
-        <a href="views/registro.php" class="btn btn-danger" role="button">Crear cuenta</a>
+            No tienes una cuenta?
+            <a href="views/registro.php" class="btn btn-danger" role="button">Crear cuenta</a>
         </p>
     </form>
 
 </body>
+
 </html>

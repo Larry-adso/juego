@@ -32,7 +32,7 @@ if(isset($_GET['id_mapa'])) {
     
     echo '<script>
     alert("se guardo correctamente");
-    window.location = "armas_select.php";
+    window.location = "../enfrentamientos/inir.php";
   </script>';
     exit();
 } else {
