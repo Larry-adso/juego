@@ -73,7 +73,7 @@ if (isset($_GET['id_avatar'])) {
                 var nickname = '<?php echo $_SESSION['nickname']; ?>';
                 // Redireccionar a la página de procesamiento con el ID del avatar y el nombre de usuario
                 window.location.href = 'game/procesar_seleccion.php?id_avatar=' + id_avatar + '&nickname=' + nickname;
-            }, 1100); // 30 segundos
+            }, 8500); // 30 segundos
         }
     </script>
 

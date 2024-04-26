@@ -107,19 +107,18 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['disparar']) && isset($_G
             // Redirigir a sala1.php
             echo "<script>
             alert('¡Disparo exitoso con un daño de $danio puntos usando $nombre_arma en $mensaje_disparo!');
-
                     window.location = '../enfrentamientos/salas1.php?jugadores=" . implode(',', $jugadores) . "';
                   </script>";
             exit();
         } else {
             echo "<script>
             alert('Error: No se encontraron jugadores en la sala');
-            window.location = 'salas1.php';
-          </script>";
+            window.location = '../enfrentamientos/salas1.php?jugadores=" . implode(',', $jugadores) . "';
+               </script>";
         }
     } else {
         echo "<script>alert('Error: No se encontró el ID del arma del disparador');
-        window.location = 'salas1.php';
+        window.location = '../enfrentamientos/salas1.php?jugadores=" . implode(',', $jugadores) . "';
         </script>";
     }
 

@@ -47,7 +47,7 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
             <div class="col">
                 <div class="card">
                     <div class="row no-gutters">
-                    <h3 class="titulo_mapas" >Nivel de arma : <?php echo $armas['nivel']; ?></h3>
+                        <h3 class="titulo_mapas">Nivel de arma : <?php echo $armas['nivel']; ?></h3>
 
                         <div class="col-md-6">
                             <?php
@@ -65,14 +65,19 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
                                 <form action="procesar_arma.php" method="get">
                                     <input type="hidden" name="id_arma" value="<?php echo $armas['id']; ?>">
                                     <input type="hidden" name="nickname" value="<?php echo $_SESSION['nickname']; ?>">
-                                    <button type="submit" class="shadow__btn">Seleccionar</button>
+                                    <button type="submit" class="shadow__btn">esto se borra</button>
                                 </form>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
         <?php } ?>
+        <a name="" id="" class="btn btn-primary" href="../enfrentamientos/inir.php" role="button">Jugar</a>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
