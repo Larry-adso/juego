@@ -71,7 +71,7 @@ try {
                 <li><a href="#">Mundos</a></li>
                 <li><a href="historial/index.php">Historial</a></li>
                 <li><a href="#">Armas</a></li>
-                <li><a href="#">Perfil</a></li>
+                <li><a href="../php/login_register/cerrar.php">Cerrar</a></li>
             </ul>
         </div>
     </div>

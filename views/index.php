@@ -34,9 +34,13 @@ try {
     // Manejar otros tipos de errores
     echo "Error: " . $e->getMessage();
 }
+$user = $conexion->prepare("SELECT * FROM usuarios");
 
-// Cerrar la conexión a la base de datos
-$conexion = null;
+// Ejecutar la consulta
+$user->execute();
+
+// Obtener todos los resultados
+$td_users = $user->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 
@@ -135,11 +139,82 @@ $conexion = null;
     </div>
 
     <main>
-        <h1>hola mundo</h1>
 
-    </main>
+        <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
 
-    <script src="../js/nav.js"></script>
+            table,
+            th,
+            td {
+                border: 1px solid black;
+            }
+
+            th,
+            td {
+                padding: 10px;
+                text-align: left;
+            }
+        </style>
+
+        <h2>Formulario de Usuarios</h2>
+
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Nickname</th>
+                <th>Vida</th>
+                <th>Nivel</th>
+                <th>Puntaje</th>
+                <th>Estado</th>
+                <!-- Falta una columna para Tipo de Usuario -->
+                <th>Tipo de Usuario</th>
+
+                <th>Acciones</th>
+            </tr>
+            <?php
+            // Verificar si hay resultados
+            if (count($td_users) > 0) {
+                foreach ($td_users as $dd) {
+            ?>
+                    <tr>
+                        <td><?php echo $dd['nombres']; ?></td>
+                        <td><?php echo $dd['correo']; ?></td>
+                        <td><?php echo $dd['nickname']; ?></td>
+                        <td><?php echo $dd['vida']; ?></td>
+                        <td><?php echo $dd['nivel']; ?></td>
+                        <td><?php echo $dd['puntaje']; ?></td>
+                        <td><?php echo $dd['id_estado']; ?></td>
+                        <td><?php echo $dd['tp_user']; ?></td>
+                        <td>
+                            <a href="../crud/armas/update.php?id=<?php echo $row['nickname']; ?>" class="btn btn-primary btn-sm" style="display: inline-block; padding: 5px 10px; background-color: #007bff; color: #fff; text-decoration: none; border: 1px solid #007bff; border-radius: 3px;">Ativar</a>
+                            <a href="../crud/usuarios/delete.php?id=<?php echo $row['nickname']; ?>" class="btn btn-danger btn-sm" style="display: inline-block; padding: 5px 10px; background-color: #dc3545; color: #fff; text-decoration: none; border: 1px solid #dc3545; border-radius: 3px; margin-left: 5px;">Desactivar</a>
+                        </td>
+
+                    </tr>
+                <?php
+                }
+            } else {
+                ?>
+                <tr>
+                    <td colspan="8">No se encontraron registros.</td>
+                </tr>
+            <?php } ?>
+        </table>
+
+
+</body>
+
+</html>
+
+
+</main>
+
+<script src="../js/nav.js"></script>
+
 </body>
 
 </html>

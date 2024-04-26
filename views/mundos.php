@@ -10,11 +10,19 @@ if (!isset($_SESSION['nickname'])) {
   die();
 }
 
-$consulta = $conexion->prepare("SELECT * FROM mapas ");
+// Obtener el nivel del jugador desde la base de datos
+$nickname = $_SESSION['nickname'];
+$consulta_nivel = $conexion->prepare("SELECT nivel FROM usuarios WHERE nickname = ?");
+$consulta_nivel->bind_param("s", $nickname);
+$consulta_nivel->execute();
+$resultado_nivel = $consulta_nivel->get_result();
+$nivel_jugador = $resultado_nivel->fetch_assoc()['nivel'];
+
+// Consulta modificada para seleccionar solo los mapas del mismo nivel que el del jugador
+$consulta = $conexion->prepare("SELECT * FROM mapas WHERE nivel_m = ?");
+$consulta->bind_param("i", $nivel_jugador);
 $consulta->execute();
 $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
-
-
 ?>
 
 <!DOCTYPE html>
@@ -30,12 +38,8 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
 
 <body>
   <header>
-
- 
     <a class="btn" href="../"> Atras</a>
-
   </header>
-
 
   <p class="#"><?php echo $_SESSION['nickname']; ?></p>
 
@@ -59,15 +63,11 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
         foreach ($info as $mapas) {
           $class = ($count == 0) ? 'active' : '';
         ?>
-
         <h3 class="titulo_mapas" >Nivel de mundo : <?php echo $mapas['nivel_m']; ?></h3>
-
           <div class="carousel-item <?php echo $class; ?>">
-            <img src="<?php echo substr($mapas['ruta'], 3); ?>" class="d-block w-100"  alt="">
+            <img src="<?php echo substr($mapas['ruta'], 6); ?>" class="d-block w-100"  alt="">
             <div class="carousel-caption d-none d-md-block">
               <br>
-             
-
               <form action="game/procesar_mapa.php" method="get">
                 <input type="hidden" name="id_mapa" value="<?php echo $mapas['id']; ?>">
                 <input type="submit" name="" class="btn btn-success" value="entrar al mundo">
@@ -90,21 +90,8 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
     </div>
   </main>
 
-
-
-
-  <script>
-    function activateRoom(button) {
-      var buttons = document.querySelectorAll('.room-button');
-      buttons.forEach(function(btn) {
-        btn.classList.remove('active');
-      });
-      button.classList.add('active');
-    }
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-
 </body>
+
+</html>

@@ -12,20 +12,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $resultado = $conexion->query($consulta);
 
     if ($resultado->num_rows == 1) {
-        session_start();
-
-        $_SESSION['nickname'] = $nickname;
-        header("Location: ../../views/lobby.php");
-        exit();
+        $usuario = $resultado->fetch_assoc();
+        if ($usuario['tp_user'] == 1) {
+            session_start();
+            $_SESSION['nickname'] = $nickname;
+            header("Location: ../../views/index.php");
+            exit();
+        } elseif ($usuario['tp_user'] == 2) {
+            session_start();
+            $_SESSION['nickname'] = $nickname;
+            header("Location: ../../views/lobby.php");
+            exit();
+        }
     } else {
         $mensaje_error = "Usuario o contraseña incorrectos.";
         header("Location: ../../index.php");
-    }/* else{
-     echo '<script>
-            alert("el usuario esta inactivo comuniquese con su administrador");
-            window.location = "../index.php";
-          </script>';
-        }
-          */
+    }
     $conexion->close();
 }
+?>

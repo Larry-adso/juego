@@ -104,7 +104,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['disparar']) && isset($_G
             // Redirigir a salas1.php con los nicknames como parámetros GET
             $jugadores = isset($_GET['jugadores']) ? $_GET['jugadores'] : '';
 
-            // Redirigir a sala1.php
             echo "<script>
             alert('¡Disparo exitoso con un daño de $danio puntos usando $nombre_arma en $mensaje_disparo!');
                     window.location = '../enfrentamientos/salas1.php?jugadores=" . implode(',', $jugadores) . "';
