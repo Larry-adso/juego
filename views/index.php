@@ -190,8 +190,19 @@ $td_users = $user->fetchAll(PDO::FETCH_ASSOC);
                         <td><?php echo $dd['id_estado']; ?></td>
                         <td><?php echo $dd['tp_user']; ?></td>
                         <td>
-                            <a href="../crud/armas/update.php?id=<?php echo $row['nickname']; ?>" class="btn btn-primary btn-sm" style="display: inline-block; padding: 5px 10px; background-color: #007bff; color: #fff; text-decoration: none; border: 1px solid #007bff; border-radius: 3px;">Ativar</a>
-                            <a href="../crud/usuarios/delete.php?id=<?php echo $row['nickname']; ?>" class="btn btn-danger btn-sm" style="display: inline-block; padding: 5px 10px; background-color: #dc3545; color: #fff; text-decoration: none; border: 1px solid #dc3545; border-radius: 3px; margin-left: 5px;">Desactivar</a>
+
+                            <!-- Formulario para activar -->
+                            <form action="admin/active.php" method="get">
+                                <input type="hidden" name="nickname" value="<?php echo htmlspecialchars($dd['nickname']); ?>">
+                                <button type="submit" class="button button-activar">Activar</button>
+                            </form>
+
+                            <!-- Formulario para desactivar -->
+                            <form action="admin/desactive.php" method="get">
+                                <input type="hidden" name="nickname" value="<?php echo htmlspecialchars($dd['nickname']); ?>">
+                                <button type="submit" class="button button-desactivar">Desactivar</button>
+                            </form>
+
                         </td>
 
                     </tr>
@@ -205,13 +216,13 @@ $td_users = $user->fetchAll(PDO::FETCH_ASSOC);
             <?php } ?>
         </table>
 
+    </main>
 
 </body>
 
 </html>
 
 
-</main>
 
 <script src="../js/nav.js"></script>
 

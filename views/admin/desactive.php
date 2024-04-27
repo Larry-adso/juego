@@ -15,17 +15,18 @@ if (isset($_GET["nickname"])) {
     if ($resultado) {
         $correo = $resultado['correo'];
 
-        $statement = $conexion->prepare("UPDATE usuarios SET id_estado = 1 WHERE correo = :correo");
+        $statement = $conexion->prepare("UPDATE usuarios SET id_estado = 2 WHERE correo = :correo");
         $statement->bindParam(':correo', $correo);
         $statement->execute();
 
         if ($statement->rowCount() > 0) {
-            $titulo = "Activacion de cuenta";
-            $msj = "Su cuenta ha sido activada, ya puedes iniciar sesión";
+            $titulo = "Desactivacion de cuenta";
+            $msj = "Su cuenta ha sido desactiva, debidoa  los protocolos valorant usted no ha cumplido con
+            los estandares basicos establecidos para ser parte de nuestra comunidad.";
             $tucorreo = "From: senatrabajos2022@gmail.com";
 
             if (mail($correo, $titulo, $msj, $tucorreo)) {
-                echo '<script>alert("Se informó al usuario ' . $correo . ' que su cuenta está activada.");
+                echo '<script>alert("Se informó al usuario ' . $correo . ' que su cuenta está desactivada  .");
                 window.location = "../index.php";
                 </script>';
             } else {

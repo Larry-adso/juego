@@ -81,6 +81,8 @@ try {
             <img src="../img/play.png" alt="Play">
         </button>
     </div>
+    <script>
+    </script>
 </body>
 
 </html>

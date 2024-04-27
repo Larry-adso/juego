@@ -44,7 +44,7 @@
                         <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['nombre']; ?></td>
                         <td><img src="<?php echo $row['ruta']; ?>" class="mapa-img" alt="<?php echo $row['nombre']; ?>" width="120px"></td>
-                        <td><?php echo $row['nivel']; ?></td>
+                        <td><?php echo $row['nivel_m']; ?></td>
                         <td>
                             <a href="../crud/mundos/update.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-sm">Editar</a>
                             <a href="../crud/mundos/delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">Eliminar</a>
