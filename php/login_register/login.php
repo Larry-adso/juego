@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
     $password = hash('sha512', $password);
 
-    $consulta = "SELECT id, tp_user FROM usuarios WHERE nickname = '$nickname' AND password = '$password'";
+    $consulta = "SELECT id, tp_user, id_estado FROM usuarios WHERE nickname = '$nickname' AND password = '$password'";
     $resultado = $conexion->query($consulta);
 
     if ($resultado->num_rows == 1) {
@@ -16,7 +16,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         session_start();
         $_SESSION['id'] = $usuario['id']; // Guardar el ID del usuario en la sesión
         $_SESSION['nickname'] = $nickname;
-        if ($usuario['tp_user'] == 1) {
+        if ($usuario['id_estado'] == 2) {
+            $mensaje_error = "Su cuenta está bloqueada. Espere a que un administrador le habilite el acceso.";
+            // Redirigir con mensaje de alerta
+            echo '<script>
+                    alert("' . $mensaje_error . '");
+                    window.location = "../../index.php";
+                  </script>';
+            exit();
+        } elseif ($usuario['tp_user'] == 1) {
             header("Location: ../../views/index.php");
             exit();
         } elseif ($usuario['tp_user'] == 2) {

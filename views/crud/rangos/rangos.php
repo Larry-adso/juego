@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <div class="container">
-        <h2 class="mt-4 mb-4">Agregar Nueva Arma</h2>
+        <h2 class="mt-4 mb-4">Agregar Rango</h2>
         <form action="" method="POST" enctype="multipart/form-data"> <!-- Agregando enctype="multipart/form-data" para subir archivos -->
             <div class="form-group">
                 <label for="id">ID:</label>

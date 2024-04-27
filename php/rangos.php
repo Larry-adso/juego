@@ -24,7 +24,7 @@ $sql = "UPDATE usuarios SET nivel =
                 WHEN puntaje BETWEEN 750 AND 1000 THEN 3
                 WHEN puntaje BETWEEN 1000 AND 1250 THEN 4
                 WHEN puntaje BETWEEN 1250 AND 1500 THEN 5
-                WHEN puntaje BETWEEN 1500 AND 6000 THEN 6
+               
 
                 -- Agrega más casos según tus necesidades
                 ELSE nivel

@@ -21,10 +21,15 @@ $resultado_nivel = $consulta_nivel->get_result();
 $nivel_jugador = $resultado_nivel->fetch_assoc()['nivel'];
 
 // Consulta modificada para seleccionar solo los mapas del mismo nivel que el del jugador
-$consulta = $conexion->prepare("SELECT * FROM mapas WHERE nivel_m = ?");
-$consulta->bind_param("i", $nivel_jugador);
+// Consulta modificada para seleccionar solo los mapas del mismo nivel que el del jugador
+if ($nivel_jugador == 1) {
+  $consulta = $conexion->prepare("SELECT * FROM mapas WHERE nivel_m = 1");
+} else {
+  $consulta = $conexion->prepare("SELECT * FROM mapas WHERE nivel_m >= 2");
+}
 $consulta->execute();
 $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
