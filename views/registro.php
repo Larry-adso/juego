@@ -19,7 +19,7 @@
         </div>
         <div class="input-box">
             <i class='bx bxs-user'></i>
-            <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
+            <input type="text" class="form-control" name="nombres" id="nombre" placeholder="Nombre">
         </div>
         <div class="input-box">
             <i class='bx bxs-user'></i>

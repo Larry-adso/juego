@@ -27,8 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $conexion->real_escape_string($password);
 
     // Prepara la consulta SQL para insertar los datos
-    $consulta = "INSERT INTO `usuarios` (`id`,`nombres`, `correo`, `nickname`, `password`, `vida`,  `nivel`, `puntaje`, `id_estado`) 
-                 VALUES ('$id','$nombres', '$correo', '$nickname', '$password', '150', '0', '0', '1')";
+    $consulta = "INSERT INTO `usuarios` (`id`,`nombres`, `correo`, `nickname`, `password`, `vida`,  `nivel`, `puntaje`, `id_estado`,tp_user) 
+                 VALUES ('$id','$nombres', '$correo', '$nickname', '$password', '150', '0', '0', '1','2')";
 
     // Ejecuta la consulta
     if ($conexion->query($consulta) === TRUE) {

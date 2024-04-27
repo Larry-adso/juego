@@ -15,23 +15,22 @@ if (!isset($_SESSION['nickname']) || !isset($_SESSION['id'])) {
 // Verificar si se reciben los parámetros necesarios
 if(isset($_GET['id_mapa'])) {
     $id_mapa = $_GET['id_mapa'];
-    $id_jugador = $_SESSION['id'];
+    $nickname = $_SESSION['nickname'];
 
     echo "ID Mapa recibido: " . $id_mapa; // Agrega esta línea para depurar
 
     // Actualizar la tabla de usuarios con el id del avatar seleccionado
-    $consulta = $conexion->prepare("UPDATE sala_detalle SET id_mapa = ? WHERE id_jugador = ?");
+    $consulta = $conexion->prepare("UPDATE sala SET id_mapa = ? WHERE nickname = ?");
     if ($consulta === false) {
         die("Error de preparación de consulta: " . $conexion->error);
     }
     
-    $consulta->bind_param('is', $id_mapa, $id_jugador);
+    $consulta->bind_param('is', $id_mapa, $nickname);
     if (!$consulta->execute()) {
         die("Error al ejecutar la consulta: " . $consulta->error);
     }
     
     echo '<script>
-    alert("se guardo correctamente");
     window.location = "../game/cola.php";
   </script>';
     exit();

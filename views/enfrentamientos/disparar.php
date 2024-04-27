@@ -106,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['disparar']) && isset($_G
 
             echo "<script>
             alert('¡Disparo exitoso con un daño de $danio puntos usando $nombre_arma en $mensaje_disparo!');
-                    window.location = '../enfrentamientos/salas1.php?jugadores=" . implode(',', $jugadores) . "';
+                    window.location = '../enfrentamientos/inir.php?jugadores=" . implode(',', $jugadores) . "';
                   </script>";
             exit();
         } else {
@@ -117,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['disparar']) && isset($_G
         }
     } else {
         echo "<script>alert('Error: No se encontró el ID del arma del disparador');
-        window.location = '../enfrentamientos/salas1.php?jugadores=" . implode(',', $jugadores) . "';
+        window.location = '../enfrentamientos/inir.php?jugadores=" . implode(',', $jugadores) . "';
         </script>";
     }
 

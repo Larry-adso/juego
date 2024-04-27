@@ -18,24 +18,24 @@ if (!isset($_SESSION['nickname']) || !isset($_SESSION['id'])) {
 // Verificar si se reciben los parámetros necesarios
 if(isset($_GET['id_avatar']) && isset($_SESSION['id'])) {
     $id_avatar = $_GET['id_avatar'];
-    $id_jugador = $_SESSION['id'];
+    $nickname = $_SESSION['nickname'];
 
     // Verificar si el id_jugador ya está en la tabla sala_detalle
-    $consulta_existencia = $conexion->prepare("SELECT id_avatar FROM sala_detalle WHERE id_jugador = ?");
-    $consulta_existencia->bind_param("s", $id_jugador);
+    $consulta_existencia = $conexion->prepare("SELECT id_avatar FROM sala WHERE nickname = ?");
+    $consulta_existencia->bind_param("s", $nickname);
     $consulta_existencia->execute();
     $resultado_existencia = $consulta_existencia->get_result();
 
     // Si el id_jugador ya está en la tabla, eliminar el registro existente
     if($resultado_existencia->num_rows > 0) {
-        $eliminar_anterior = $conexion->prepare("DELETE FROM sala_detalle WHERE id_jugador = ?");
-        $eliminar_anterior->bind_param("s", $id_jugador);
+        $eliminar_anterior = $conexion->prepare("DELETE FROM sala WHERE nickname = ?");
+        $eliminar_anterior->bind_param("s", $nickname);
         $eliminar_anterior->execute();
     }
 
     // Insertar el nuevo registro
-    $insertar_nuevo = $conexion->prepare("INSERT INTO sala_detalle (id_avatar, id_jugador) VALUES (?, ?)");
-    $insertar_nuevo->bind_param("ss", $id_avatar, $id_jugador);
+    $insertar_nuevo = $conexion->prepare("INSERT INTO sala (id_avatar, nickname) VALUES (?, ?)");
+    $insertar_nuevo->bind_param("ss", $id_avatar, $nickname);
     $insertar_nuevo->execute();
 
     // Verificar si la operación se realizó correctamente

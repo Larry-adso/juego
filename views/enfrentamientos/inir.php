@@ -42,11 +42,11 @@ try {
   $conexion = new PDO("mysql:host=localhost;dbname=juego", "root", "");
   $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  $sala = $conexion->prepare("SELECT sala.*, usuarios.nivel, mapas.nombre AS nombre_mapa, armas.nombre AS nombre_arma 
+  $sala = $conexion->prepare("SELECT sala.*, usuarios.nivel, mapas.nombre AS nombre_mapa 
                               FROM sala 
                               INNER JOIN usuarios ON sala.nickname = usuarios.nickname
                               INNER JOIN mapas ON sala.id_mapa = mapas.id
-                              INNER JOIN armas ON sala.id_arma = armas.id
+                            
                               WHERE usuarios.nivel = :nivelUsuario
                               AND sala.id_mapa = (SELECT id_mapa FROM sala WHERE nickname = :nombreUsuario LIMIT 1)
                               AND sala.nickname != :nombreUsuario
@@ -73,16 +73,5 @@ array_push($jugadores, $nombreUsuario);
 // Redireccionar a salas1.php y pasar los nicknames de los 5 jugadores y el número de sala
 header("Location: salas1.php?jugadores=" . implode(',', $jugadores));
 
-try {
-  $updateSala = $conexion->prepare("UPDATE sala SET ocupado = 1, numero_sala = :numeroSala WHERE nickname IN ('" . implode("','", $jugadores) . "')");
-  $updateSala->bindParam(':numeroSala', $numeroSala);
-  $updateSala->execute();
-  header("Location: salas1.php?jugadores=" . implode(',', $jugadores) . "&numero_sala=" . $numeroSala);
-} catch (PDOException $e) {
-  // Manejar errores de PDO
-  echo "Error de PDO al actualizar el campo 'ocupado': " . $e->getMessage();
-}
 
-
-exit();
 ?>

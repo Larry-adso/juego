@@ -6,7 +6,7 @@
         $ruta = $_POST['ruta'];
         $nivel = $_POST['nivel'];
 
-        $mysqli->query("UPDATE mundos SET nombre='$nombre', ruta='$ruta', nivel='$nivel' WHERE id=$id");
+        $conexion->query("UPDATE mundos SET nombre='$nombre', ruta='$ruta', nivel='$nivel' WHERE id=$id");
 
         $_SESSION['message'] = "Mapa actualizado exitosamente";
         $_SESSION['msg_type'] = "success";
@@ -21,8 +21,7 @@
             $row = $result->fetch_assoc();
             $nombre = $row['nombre'];
             $ruta = $row['ruta'];
-            $nivel = $row['nivel'];
-            
+
         }
     }
 ?>
@@ -50,7 +49,7 @@
             </div>
             <div class="form-group">
                 <label for="nivel">Nivel:</label>
-                <input type="text" class="form-control" id="nivel" name="nivel" value="<?php echo $nivel; ?>" required>
+                <input type="text" class="form-control" id="nivel" name="nivel"  required>
             </div>
             <button type="submit" class="btn btn-primary">Actualizar</button>
         </form>

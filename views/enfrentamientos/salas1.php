@@ -237,6 +237,12 @@ if ($result_usuario_autenticado->num_rows > 0) {
     <footer>
         <!-- Aquí va tu pie de página si es necesario -->
     </footer>
+    <script>
+    // Recargar la página cada 3 segundos
+    setInterval(function() {
+      location.reload();
+    }, 3000);
+  </script>
     <!-- Enlaces a JavaScript y otros scripts si es necesario -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Script para recargar la página cada 3 segundos -->
