@@ -43,7 +43,7 @@ if ($result_usuario_autenticado->num_rows > 0) {
 } else {
     echo '<script>
             alert("Lo siento ha sido eliminado ");
-            window.location = "../lobby.php";
+            window.location = "../resultados/lose.php";
           </script>';
     exit();
 }
@@ -152,7 +152,7 @@ if ($result_usuario_autenticado->num_rows > 0) {
               </div>';
             echo '<script>
                 setTimeout(function(){
-                  window.location.href = "../lobby.php";
+                  window.location.href = "../resultados/win.php";
                 }, 3000);
               </script>';
             exit;
