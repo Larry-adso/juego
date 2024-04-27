@@ -69,21 +69,20 @@ $jugadores = array_column($info, 'nickname');
 array_push($jugadores, $nombreUsuario);
 
 // Generar un número aleatorio para identificar la sala
-$numeroSala = rand(1, 1000);
 
 // Redireccionar a salas1.php y pasar los nicknames de los 5 jugadores y el número de sala
-header("Location: salas1.php?jugadores=" . implode(',', $jugadores) . "&numero_sala=" . $numeroSala);
+header("Location: salas1.php?jugadores=" . implode(',', $jugadores));
 
-// Actualizar el campo 'ocupado' y 'numero_sala' de la sala para los jugadores seleccionados
 try {
   $updateSala = $conexion->prepare("UPDATE sala SET ocupado = 1, numero_sala = :numeroSala WHERE nickname IN ('" . implode("','", $jugadores) . "')");
   $updateSala->bindParam(':numeroSala', $numeroSala);
   $updateSala->execute();
+  header("Location: salas1.php?jugadores=" . implode(',', $jugadores) . "&numero_sala=" . $numeroSala);
 } catch (PDOException $e) {
   // Manejar errores de PDO
   echo "Error de PDO al actualizar el campo 'ocupado': " . $e->getMessage();
-  exit();
 }
+
 
 exit();
 ?>

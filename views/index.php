@@ -2,7 +2,7 @@
 session_start();
 
 // Verificar si el usuario está autenticado
-if (!isset($_SESSION['nickname'])) {
+if (!isset($_SESSION['nickname']) || !isset($_SESSION['id'])) {
     echo '<script>
             alert("Por favor inicie sesión e intente nuevamente");
             window.location = "../index.php";
@@ -15,7 +15,7 @@ include("../db/PDO.php");
 
 try {
     // Preparar y ejecutar la consulta
-    $consultaUsuario = $conexion->prepare("SELECT nickname FROM usuarios WHERE nickname = :nickname");
+    $consultaUsuario = $conexion->prepare("SELECT * FROM usuarios WHERE nickname = :nickname");
     $consultaUsuario->bindParam(':nickname', $_SESSION['nickname']);
     $consultaUsuario->execute();
     $usuario = $consultaUsuario->fetch(PDO::FETCH_ASSOC);
@@ -27,6 +27,7 @@ try {
     }
 
     $nombreUsuario = $usuario['nickname'];
+
 } catch (PDOException $e) {
     // Manejar errores de PDO
     echo "Error de PDO: " . $e->getMessage();
@@ -74,6 +75,7 @@ $td_users = $user->fetchAll(PDO::FETCH_ASSOC);
         <div class="name__page">
             <i class="fab fa-youtube"></i>
             <p>: <?php echo $nombreUsuario; ?></p>
+
         </div>
 
         <div class="options__menu">

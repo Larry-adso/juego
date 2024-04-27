@@ -3,7 +3,7 @@ include("../../db/conexion.php");
 session_start();
 
 // Verificar si el usuario está autenticado
-if (!isset($_SESSION['nickname'])) {
+if (!isset($_SESSION['nickname']) || !isset($_SESSION['id'])) {
     echo '<script>
             alert("Por favor inicie sesión e intente nuevamente");
             window.location = "../index.php";
@@ -15,24 +15,24 @@ if (!isset($_SESSION['nickname'])) {
 // Verificar si se reciben los parámetros necesarios
 if(isset($_GET['id_mapa'])) {
     $id_mapa = $_GET['id_mapa'];
-    $nickname = $_SESSION['nickname'];
+    $id_jugador = $_SESSION['id'];
 
     echo "ID Mapa recibido: " . $id_mapa; // Agrega esta línea para depurar
 
     // Actualizar la tabla de usuarios con el id del avatar seleccionado
-    $consulta = $conexion->prepare("UPDATE sala SET id_mapa = ? WHERE nickname = ?");
+    $consulta = $conexion->prepare("UPDATE sala_detalle SET id_mapa = ? WHERE id_jugador = ?");
     if ($consulta === false) {
         die("Error de preparación de consulta: " . $conexion->error);
     }
     
-    $consulta->bind_param('is', $id_mapa, $nickname);
+    $consulta->bind_param('is', $id_mapa, $id_jugador);
     if (!$consulta->execute()) {
         die("Error al ejecutar la consulta: " . $consulta->error);
     }
     
     echo '<script>
     alert("se guardo correctamente");
-    window.location = "../enfrentamientos/inir.php";
+    window.location = "../game/cola.php";
   </script>';
     exit();
 } else {
