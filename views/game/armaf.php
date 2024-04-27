@@ -33,7 +33,7 @@ if (isset($_GET['id_arma'])) {
 
     // Redirigir a sala1.php
     echo "<script>
-            window.location = '../enfrentamientos/salas1.php?jugadores=" . implode(',', $jugadores) . "';
+            window.location = '../enfrentamientos/inir.php?jugadores=" . implode(',', $jugadores) . "';
           </script>";
     exit();
 } else {
