@@ -52,7 +52,8 @@ if ($result_usuario_autenticado->num_rows > 0) {
         <h1>¡Lo siento! Has perdido</h1>
         <img src="<?php echo $avatar_usuario_autenticado; ?>" alt="Avatar">
         <p>Nombre de usuario: <?php echo $nombre_usuario_autenticado; ?></p>
-        <a href="../lobby.php">Volver al lobby</a>
+        <a href="../lobby.php" class="btn">Volver al lobby</a>
+
     </div>
 </body>
 
