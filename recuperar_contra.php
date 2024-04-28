@@ -1,5 +1,5 @@
 <?php
-include("../../db/conexion.php");
+include("db/PDO.php");
 session_start();
 
 if (isset($_POST['recuperar'])) {

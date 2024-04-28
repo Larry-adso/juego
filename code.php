@@ -1,18 +1,18 @@
 <?php
-include("../../db/conexion.php");
+include("db/PDO.php");
    session_start();
 
    if (isset($_POST['verificar']))
    { 
        $codigo=$_POST['codigo'];
 
-       $sql= $con -> prepare ("SELECT * FROM usuarios WHERE token='$codigo'");
+       $sql= $conexion -> prepare ("SELECT * FROM usuarios WHERE token='$codigo'");
        $sql -> execute();
        $fila = $sql -> fetchAll(PDO::FETCH_ASSOC);
 
      if ($fila) {
      echo '<script> alert ("Su codigo ha sido verificado correctamente");</script>';
-     $_SESSION['user_id'] = $fila[0]['documento'];
+     $_SESSION['id'] = $fila[0]['id'];
      header("Location: contrasena.php");
      }
      else{
