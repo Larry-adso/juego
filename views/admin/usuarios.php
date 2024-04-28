@@ -46,7 +46,7 @@
                     while ($row = $result->fetch_assoc()): ?>
                     <tr>
                         <td><?php echo $row['id']; ?></td>
-                        <td><?php echo $row['nombre']; ?></td>
+                        <td><?php echo $row['nombres']; ?></td>
                         <td><?php echo $row['correo']; ?></td>
                         <td><?php echo $row['nickname']; ?></td>
                         <td><?php echo $row['nivel']; ?></td>

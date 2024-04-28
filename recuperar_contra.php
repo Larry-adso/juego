@@ -1,14 +1,12 @@
 <?php
-include("db/conexion.php");
+include("db/PDO.php");
 session_start();
 
-  
    if (isset($_POST['recuperar']))
    {
-
      $correo=$_POST['correo'];
 
-    $sql= $con -> prepare ("SELECT * FROM usuarios WHERE correo='$correo'");
+    $sql= $conexion -> prepare ("SELECT * FROM usuarios WHERE correo='$correo'");
     $sql -> execute();
     $fila = $sql -> fetchAll(PDO::FETCH_ASSOC);
 
@@ -16,7 +14,7 @@ session_start();
    $longitud= 4;
    $codigo= substr(str_shuffle($digitos), 0, $longitud);
 
-    $insert= $con -> prepare ("UPDATE usuarios SET token='$codigo' Where correo='$correo'");
+    $insert= $conexion -> prepare ("UPDATE usuarios SET token='$codigo' Where correo='$correo'");
     $insert -> execute();
     $fila1 = $insert -> fetchAll(PDO::FETCH_ASSOC);
 

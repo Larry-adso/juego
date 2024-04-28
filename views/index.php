@@ -27,7 +27,6 @@ try {
     }
 
     $nombreUsuario = $usuario['nickname'];
-
 } catch (PDOException $e) {
     // Manejar errores de PDO
     echo "Error de PDO: " . $e->getMessage();
@@ -165,6 +164,7 @@ $td_users = $user->fetchAll(PDO::FETCH_ASSOC);
 
         <table>
             <tr>
+                <th>id</th>
                 <th>Nombre</th>
                 <th>Correo</th>
                 <th>Nickname</th>
@@ -172,7 +172,6 @@ $td_users = $user->fetchAll(PDO::FETCH_ASSOC);
                 <th>Nivel</th>
                 <th>Puntaje</th>
                 <th>Estado</th>
-                <!-- Falta una columna para Tipo de Usuario -->
                 <th>Tipo de Usuario</th>
 
                 <th>Acciones</th>
@@ -183,6 +182,7 @@ $td_users = $user->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($td_users as $dd) {
             ?>
                     <tr>
+                        <td><?php echo $dd['id']; ?></td>
                         <td><?php echo $dd['nombres']; ?></td>
                         <td><?php echo $dd['correo']; ?></td>
                         <td><?php echo $dd['nickname']; ?></td>
