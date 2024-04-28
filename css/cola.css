@@ -9,7 +9,7 @@ body {
 
 header {
     text-align: center; /* Centrar el texto del encabezado */
-    padding: 20px 0; /* Agregar espacio alrededor del encabezado */
+    padding: 40px 0; /* Agregar espacio alrededor del encabezado */
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -43,7 +43,7 @@ header {
     align-items: center; /* Centra verticalmente */
     width: 120px; /* Ancho deseado */
     height: 50px; /* Alto deseado */
-    margin: 20px auto; /* Centra el botón horizontalmente */
+    margin: 180px auto 0; /* Centra el botón horizontalmente y crea un margen superior */
     background-color: rgb(226, 11, 11);
     border: none; /* Quita el borde */
     border-radius: 10px; /* Agrega esquinas redondeadas */
