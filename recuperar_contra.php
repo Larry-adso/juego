@@ -1,5 +1,5 @@
 <?php
-include("db/PDO.php");
+include("../../db/conexion.php");
 session_start();
 
 if (isset($_POST['recuperar'])) {
@@ -22,7 +22,7 @@ if (isset($_POST['recuperar'])) {
   $titulo = "Recuperar Contraseña";
   $msj = "Su codigo de verificacion es: '$codigo'";
 
-  $tucorreo = "From:colaya741@gmail.com";
+  $tucorreo = "From:senatrabajos2022@gmail.com";
   if (mail($paracorreo, $titulo, $msj, $tucorreo)) {
     echo '<script> alert ("Su codigo ha sido enviado al correo anteriormente digitado");</script>';
     echo '<script>window.location="code.php"</script>';
