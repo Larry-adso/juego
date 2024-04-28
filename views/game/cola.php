@@ -31,26 +31,17 @@ $resultado = $conexion->query($consulta);
     <!-- Agregar los enlaces a Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/cola.css">
-    <style>
-        #contador {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 13em; /* Aumentar el tamaño del contador */
-            color: red;
-            font-weight: bold; /* Hacer que las letras sean más gruesas */
-            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); /* Agregar sombra a las letras */
-            padding: 20px; /* Añadir espacio alrededor del contador */
-            border-radius: 10px; /* Agregar bordes redondeados */
-        }
-    </style>
+   
 </head>
 
 <body>
+<div class="container">
     <header>
         <h1>¿Desea iniciar la batalla?</h1>
     </header>
+
+    <!-- Resto del contenido -->
+</div>
 
     <!-- Agregar el audio -->
     <audio id="audio" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>

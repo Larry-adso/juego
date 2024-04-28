@@ -67,7 +67,7 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
 
   <main class="container">
     <?php foreach ($info as $mapa): ?>
-    <div class="col-md-4 mb-4">
+    <div class="col-lg-4 col-md-6 mb-4">
       <div class="card">
         <img src="<?php echo substr($mapa['ruta'], 6); ?>" class="card-img-top" alt="">
         <div class="card-body text-center mi-card">
@@ -81,6 +81,7 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
     </div>
     <?php endforeach; ?>
   </main>
+
 
   <script>
     // Recargar la página cada 3 segundos

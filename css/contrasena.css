@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: -webkit-linear-gradient(132deg, #ffffff,#ffffff,#00bfc2);/* Chrome 10-25, Safari 5.1-6 */                          background: linear-gradient(132deg, #ffffff,#ffffff,#00bfc2);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */                                             
+    background: -webkit-linear-gradient(132deg, #ffffff,#ffffff,#0a1175);/* Chrome 10-25, Safari 5.1-6 */                          background: linear-gradient(132deg, #ffffff,#ffffff,#00bfc2);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */                                             
   }
   
   .container {

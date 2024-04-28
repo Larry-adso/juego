@@ -37,6 +37,20 @@ header {
     font-size: 20px; /* Tamaño de fuente deseado */
 }
 
+#contador {
+    text-align: center; /* Centrar el contador */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10em; /* Aumentar el tamaño del contador */
+    color: red;
+    font-weight: bold; /* Hacer que las letras sean más gruesas */
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); /* Agregar sombra a las letras */
+    padding: 20px; /* Añadir espacio alrededor del contador */
+    border-radius: 10px; /* Agregar bordes redondeados */
+}
+
 .mi-btn {
     display: flex;
     justify-content: center; /* Centra horizontalmente */
