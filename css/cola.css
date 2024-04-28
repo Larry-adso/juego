@@ -41,14 +41,14 @@ header {
     display: flex;
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
-    width: 120px; /* Ancho deseado */
-    height: 50px; /* Alto deseado */
+    width: 160px; /* Ancho deseado */
+    height: 70px; /* Alto deseado */
     margin: 180px auto 0; /* Centra el botón horizontalmente y crea un margen superior */
     background-color: rgb(226, 11, 11);
     border: none; /* Quita el borde */
     border-radius: 10px; /* Agrega esquinas redondeadas */
     color: white; /* Color de texto */
-    font-size: 16px; /* Tamaño de fuente */
+    font-size: 20px; /* Tamaño de fuente */
     font-family: Georgia, 'Times New Roman', Times, serif;
     cursor: pointer; /* Cambia el cursor al pasar el mouse */
     animation: glowing 1.5s infinite alternate; /* Aplica la animación */
