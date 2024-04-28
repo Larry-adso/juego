@@ -19,8 +19,10 @@ $usuario_autenticado = $_SESSION['nickname'];
 // Obtener los datos del usuario autenticado
 $sql_usuario_autenticado = "SELECT u.nickname, a.ruta as avatar
                             FROM usuarios u
-                            INNER JOIN avatar a ON u.id_avatar = a.id
+                            INNER JOIN sala s ON u.nickname = s.nickname
+                            INNER JOIN avatar a ON s.id_avatar = a.id
                             WHERE u.nickname = ?";
+
 $consulta_usuario_autenticado = $conexion->prepare($sql_usuario_autenticado);
 $consulta_usuario_autenticado->bind_param("s", $usuario_autenticado);
 $consulta_usuario_autenticado->execute();
@@ -32,11 +34,7 @@ if ($result_usuario_autenticado->num_rows > 0) {
     $nombre_usuario_autenticado = $row_usuario_autenticado["nickname"];
     $avatar_usuario_autenticado = $row_usuario_autenticado["avatar"];
 } else {
-    echo '<script>
-            alert("Lo siento ha sido eliminado ");
-            window.location = "../lobby.php";
-          </script>';
-    exit();
+   
 }
 ?>
 <!doctype html>
@@ -46,12 +44,13 @@ if ($result_usuario_autenticado->num_rows > 0) {
     <title>Ganador</title>
     <!-- Enlaces a Bootstrap y estilos CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/victory.css">
 </head>
 
 <body>
     <div class="container">
         <h1>¡Felicidades! Eres el ganador</h1>
-        <img src="<?php echo $avatar_usuario_autenticado; ?>" alt="Avatar">
+        <img src="<?php echo $avatar_usuario_autenticado; ?>" alt="Avatar" width="300px">
         <p>Nombre de usuario: <?php echo $nombre_usuario_autenticado; ?></p>
         <a href="../lobby.php">Volver al lobby</a>
     </div>
