@@ -37,7 +37,7 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
     </div>
 
    
-    <a class="btns" href="lobby.php">Volver</a>
+    <a href="lobby.php" class="btns">Atras</a>
 
   </header>
 

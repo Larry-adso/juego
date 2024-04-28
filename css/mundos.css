@@ -12,6 +12,7 @@ header{
 
 .btn {
   font-size: 1.2rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   padding: 1rem 2.5rem;
   border: none;
   outline: none;
@@ -34,6 +35,12 @@ header{
   background: rgb(2,29,78);
   background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 85, 232, 0.873) 60%);
   color: rgb(4, 4, 38);
+}
+
+.mi-card{
+  color: rgb(255, 255, 255);
+  background-color: #000000;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 

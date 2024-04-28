@@ -22,7 +22,7 @@
 
 <body>
     <header>
-        <h1>Jugadores en cola</h1>
+        <h1>¿Desea iniciar la batalla?</h1>
     </header>
 
     <?php
