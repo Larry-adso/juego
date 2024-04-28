@@ -71,7 +71,7 @@ $info = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
       <div class="card">
         <img src="<?php echo substr($mapa['ruta'], 6); ?>" class="card-img-top" alt="">
         <div class="card-body text-center mi-card">
-          <h5 class="card-title">Nivel de mundo: <?php echo $mapa['nivel_m']; ?></h5>
+          <h5 class="card-title"><?php echo $mapa['nombre']; ?></h5>
           <form action="game/procesar_mapa.php" method=" get">
             <input type="hidden" name="id_mapa" value="<?php echo $mapa['id']; ?>">
             <input type="submit" class="btn btn-success mt-2" value="Elegir mundo">

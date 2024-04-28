@@ -28,7 +28,7 @@ $consulta_usuario_autenticado->execute();
 $result_usuario_autenticado = $consulta_usuario_autenticado->get_result();
 
 // Inicializar vida_maxima con un valor predeterminado
-$vida_maxima = 150; // Valor predeterminado
+$vida_maxima = 100; // Valor predeterminado
 
 // Verificar si se encontró el usuario autenticado
 if ($result_usuario_autenticado->num_rows > 0) {
@@ -46,7 +46,7 @@ if ($result_usuario_autenticado->num_rows > 0) {
             window.location = "../resultados/lose.php";
           </script>';
     exit();
-}
+}   
 ?>
 <!doctype html>
 <html lang="en">
@@ -147,9 +147,7 @@ if ($result_usuario_autenticado->num_rows > 0) {
             $sql_eliminar_jugador = "DELETE FROM sala";
             $conexion->query($sql_eliminar_jugador);
 
-            echo '<div class="alert alert-success" role="alert">
-                ¡Felicidades! ¡Eres el ganador!
-              </div>';
+            
             echo '<script>
                 setTimeout(function(){
                   window.location.href = "../resultados/win.php";
@@ -238,11 +236,12 @@ if ($result_usuario_autenticado->num_rows > 0) {
         <!-- Aquí va tu pie de página si es necesario -->
     </footer>
     <script>
-    // Recargar la página cada 3 segundos
-    setInterval(function() {
-      location.reload();
-    }, 3000);
-  </script>
+  // Redireccionar a inr.php después de 3 segundos
+  setTimeout(function() {
+    window.location.href = "inir.php";
+  }, 3000);
+</script>
+
     <!-- Enlaces a JavaScript y otros scripts si es necesario -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Script para recargar la página cada 3 segundos -->
