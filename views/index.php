@@ -34,7 +34,9 @@ try {
     // Manejar otros tipos de errores
     echo "Error: " . $e->getMessage();
 }
-$user = $conexion->prepare("SELECT * FROM usuarios");
+$user = $conexion->prepare("SELECT usuarios.*, estado.estado 
+AS nombre_estado FROM usuarios 
+LEFT JOIN estado ON usuarios.id_estado = estado.id");
 
 // Ejecutar la consulta
 $user->execute();
@@ -181,6 +183,7 @@ $td_users = $user->fetchAll(PDO::FETCH_ASSOC);
             if (count($td_users) > 0) {
                 foreach ($td_users as $dd) {
             ?>
+            
                     <tr>
                         <td><?php echo $dd['id']; ?></td>
                         <td><?php echo $dd['nombres']; ?></td>
@@ -189,7 +192,7 @@ $td_users = $user->fetchAll(PDO::FETCH_ASSOC);
                         <td><?php echo $dd['vida']; ?></td>
                         <td><?php echo $dd['nivel']; ?></td>
                         <td><?php echo $dd['puntaje']; ?></td>
-                        <td><?php echo $dd['id_estado']; ?></td>
+                        <td><?php echo $dd['nombre_estado']; ?></td>
                         <td><?php echo $dd['tp_user']; ?></td>
                         <td>
 
